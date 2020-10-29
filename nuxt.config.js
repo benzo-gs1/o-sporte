@@ -30,7 +30,9 @@ export default {
     "@nuxtjs/style-resources",
   ],
 
-  axios: {},
+  axios: {
+    baseURL: "https://1sport.kz/wp-json/wp/v2",
+  },
 
   i18n: {
     locales: [

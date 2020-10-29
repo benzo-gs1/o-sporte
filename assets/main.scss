@@ -207,3 +207,20 @@ $bpMobileMin: 320px;
 .adds-placeholder {
   background-color: $colorLightGray;
 }
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  height: 100%;
+}
+
+.overlay {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

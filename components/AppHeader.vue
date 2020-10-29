@@ -102,7 +102,7 @@ export default {
 .logo {
   font-family: Proxima Nova;
   font-style: italic;
-  font-weight: normal;
+  font-weight: 700;
   font-size: 48px;
   line-height: 58px;
 

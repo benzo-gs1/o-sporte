@@ -2,6 +2,7 @@
   <div id="home-page">
     <popular-section></popular-section>
     <live-section></live-section>
+    <div class="adds adds-placeholder" style="height: 100px"></div>
     <games-section></games-section>
     <news-section></news-section>
     <exclusives-section></exclusives-section>
@@ -11,5 +12,10 @@
 <script>
 export default {
   name: "HomePage",
+  head() {
+    return {
+      title: "О Спорте",
+    };
+  },
 };
 </script>

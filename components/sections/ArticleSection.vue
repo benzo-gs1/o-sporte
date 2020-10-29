@@ -1,9 +1,7 @@
 <template>
   <section :id="name" class="article-section">
     <h2 class="h2 mt-10 mb-8">{{ $t(name) }}</h2>
-    <div class="content">
-      <slot />
-    </div>
+    <slot />
   </section>
 </template>
 
@@ -19,9 +17,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.content {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-}
-</style>
+<style lang="scss" scoped></style>
