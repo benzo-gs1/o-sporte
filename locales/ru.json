@@ -1,12 +1,18 @@
 {
   "hello": "Привет",
-  "header": {
+  "links": {
+    "title": "Ссылки",
     "football": "Футбол",
     "hockey": "Хоккей",
     "boxing": "Бокс",
     "forecasts": "Прогнозы",
     "interview": "Интервью",
-    "cybersport": "Cybersport",
+    "cybersport": "Киберспорт",
+    "news": "Новости",
     "live": "Live"
+  },
+  "footer": {
+    "copyright": "OSporte Media — All Rights Reserved",
+    "social": "Мы в социальных сетях"
   }
 }

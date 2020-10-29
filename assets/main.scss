@@ -6,6 +6,16 @@ $colorDate: #7b7b7b;
 $colorWhite: #ffffff;
 $colorTag: #ff8271;
 
+:root {
+  --color-gray: #{$colorGray};
+  --color-light-gray: #{$colorLightGray};
+  --color-blue: #{$colorBlue};
+  --color-header: #{$colorHeader};
+  --color-date: #{$colorDate};
+  --color-white: #{$colorWhite};
+  --color-tag: #{$colorTag};
+}
+
 $bpTabletMax: 1000px;
 $bpTabletMin: 768px;
 $bpMobileMax: 480px;
@@ -37,6 +47,32 @@ $bpMobileMin: 320px;
     margin: $r;
   }
 }
+@for $i from 1 to 24 {
+  $r: $i * 4px;
+  .pt-#{$i} {
+    padding-top: $r;
+  }
+  .pl-#{$i} {
+    padding-left: $r;
+  }
+  .pb-#{$i} {
+    padding-bottom: $r;
+  }
+  .pr-#{$i} {
+    padding-right: $r;
+  }
+  .px-#{$i} {
+    padding-left: $r;
+    padding-right: $r;
+  }
+  .py-#{$i} {
+    padding-top: $r;
+    padding-bottom: $r;
+  }
+  .pa-#{$i} {
+    padding: $r;
+  }
+}
 
 .clickable {
   cursor: pointer;
@@ -45,13 +81,20 @@ $bpMobileMin: 320px;
 .d-flex {
   display: flex;
 }
+.flex-column {
+  flex-direction: column;
+}
 
 .align-center {
   align-items: center;
 }
+.justify-between {
+  justify-content: space-between;
+}
 
 .content-wrapper {
   width: 1200px;
+  height: 100%;
   margin: {
     left: auto;
     right: auto;
@@ -173,4 +216,20 @@ $bpMobileMin: 320px;
   line-height: 29px;
 
   color: #c4c4c4;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.adds-placeholder {
+  background-color: $colorLightGray;
 }

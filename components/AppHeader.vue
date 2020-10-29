@@ -1,6 +1,6 @@
 <template>
   <header id="app-header">
-    <div class="content-wrapper d-flex align-center">
+    <div class="content-wrapper d-flex align-center justify-between">
       <nuxt-link class="logo" :to="localePath('/')">OСпорте</nuxt-link>
       <nav class="navigation d-flex">
         <nuxt-link
@@ -54,31 +54,31 @@ export default {
     return {
       items: [
         {
-          name: "header.football",
+          name: "links.football",
           link: "/footbal",
         },
         {
-          name: "header.hockey",
+          name: "links.hockey",
           link: "/hockey",
         },
         {
-          name: "header.boxing",
+          name: "links.boxing",
           link: "/boxing",
         },
         {
-          name: "header.forecasts",
+          name: "links.forecasts",
           link: "/forecasts",
         },
         {
-          name: "header.interview",
+          name: "links.interview",
           link: "/interview",
         },
         {
-          name: "header.cybersport",
+          name: "links.cybersport",
           link: "/cybersport",
         },
         {
-          name: "header.live",
+          name: "links.live",
           link: "/live",
           live: true,
         },
@@ -97,11 +97,6 @@ export default {
 #app-header {
   height: 110px;
   background-color: $colorHeader;
-}
-
-.content-wrapper {
-  height: 100%;
-  justify-content: space-between;
 }
 
 .logo {

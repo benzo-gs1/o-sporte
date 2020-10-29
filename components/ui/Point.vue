@@ -14,13 +14,17 @@ export default {
       type: String,
       default: "#FF0000",
     },
+    height: {
+      type: String,
+      default: "",
+    },
   },
   computed: {
     styles() {
       return {
         "background-color": this.color,
         width: this.size,
-        height: this.size,
+        height: this.height || this.size,
       };
     },
   },

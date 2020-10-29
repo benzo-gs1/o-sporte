@@ -1,10 +1,12 @@
 <template>
-  <img
-    :src="image"
-    :alt="alt"
-    :style="styles"
-    :class="{ clickable: clickable }"
-  />
+  <a :href="link">
+    <img
+      :src="image"
+      :alt="alt"
+      :style="styles"
+      :class="{ clickable: clickable }"
+    />
+  </a>
 </template>
 
 <script>
@@ -24,6 +26,10 @@ export default {
       default: "20px",
     },
     clickable: Boolean,
+    link: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     styles() {
