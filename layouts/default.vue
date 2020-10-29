@@ -2,7 +2,7 @@
   <div id="app">
     <app-header></app-header>
     <main id="main">
-      <Nuxt />
+      <Nuxt class="content-wrapper" />
     </main>
     <app-footer></app-footer>
   </div>
@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 #main {
