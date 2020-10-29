@@ -58,7 +58,7 @@ export default {
   },
 
   styleResources: {
-    scss: ["~/assets/main.scss"],
+    scss: ["~/assets/main.scss", "vue-select/src/scss/vue-select.scss"],
   },
 
   build: {},

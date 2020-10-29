@@ -15,6 +15,12 @@
     "popular": "Популярные новости",
     "live": "Прямой эфир",
     "games": "Матчи",
+    "games-navigation": {
+      "yesterday": "Вчера",
+      "today": "Сегодня",
+      "tomorrow": "Завтра"
+    },
+    "game-summary": "итог",
     "news": "Лента новостей",
     "exclusives": "Эксклюзив"
   },
