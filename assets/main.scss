@@ -1,0 +1,129 @@
+$colorGray: #a1a1a1;
+$colorLightGray: #f2f2f2;
+$colorBlue: #477bff;
+$colorHeader: #212121;
+$colorDate: #7b7b7b;
+$colorWhite: #ffffff;
+$colorTag: #ff8271;
+
+$bpTabletMax: 1000px;
+$bpTabletMin: 768px;
+$bpMobileMax: 480px;
+$bpMobileMin: 320px;
+
+.h2 {
+  font-family: Proxima Nova, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 37px;
+
+  color: #c4c4c4;
+}
+.h3 {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 58px;
+
+  color: #c4c4c4;
+}
+.h4 {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 44px;
+
+  color: #c4c4c4;
+}
+.h5 {
+  font-family: Proxima Nova;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
+
+  color: #c4c4c4;
+}
+.h6 {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  color: #c4c4c4;
+}
+
+.title {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 95px;
+
+  color: #c4c4c4;
+}
+
+@media (max-width: $bpTabletMax) {
+  .h5 {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #c4c4c4;
+  }
+  .title {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 70px;
+
+    color: #c4c4c4;
+  }
+}
+
+.sub-header {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #c4c4c4;
+}
+
+.paragraph {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 23px;
+  /* or 144% */
+
+  color: #c4c4c4;
+}
+
+.tag_small {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #c4c4c4;
+}
+
+.header_live {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #c4c4c4;
+}

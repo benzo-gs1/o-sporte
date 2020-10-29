@@ -2,20 +2,20 @@ export default {
   target: "static",
 
   head: {
-    title: "OSporte",
+    title: "О Спорте",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "Информационный портал о спорте",
+        content: "Информационный портал про спортивные новости",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
-  css: [],
+  css: ["~/assets/main.scss"],
 
   plugins: [],
 
