@@ -11,6 +11,53 @@ $bpTabletMin: 768px;
 $bpMobileMax: 480px;
 $bpMobileMin: 320px;
 
+@for $i from 1 to 24 {
+  $r: $i * 4px;
+  .mt-#{$i} {
+    margin-top: $r;
+  }
+  .ml-#{$i} {
+    margin-left: $r;
+  }
+  .mb-#{$i} {
+    margin-bottom: $r;
+  }
+  .mr-#{$i} {
+    margin-right: $r;
+  }
+  .mx-#{$i} {
+    margin-left: $r;
+    margin-right: $r;
+  }
+  .my-#{$i} {
+    margin-top: $r;
+    margin-bottom: $r;
+  }
+  .ma-#{$i} {
+    margin: $r;
+  }
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.content-wrapper {
+  width: 1200px;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}
+
 .h2 {
   font-family: Proxima Nova, sans-serif;
   font-style: normal;

@@ -23,7 +23,12 @@ export default {
 
   buildModules: ["@nuxtjs/eslint-module"],
 
-  modules: ["@nuxtjs/axios", "@nuxtjs/pwa", "nuxt-i18n"],
+  modules: [
+    "@nuxtjs/axios",
+    "@nuxtjs/pwa",
+    "nuxt-i18n",
+    "@nuxtjs/style-resources",
+  ],
 
   axios: {},
 
@@ -48,6 +53,10 @@ export default {
         kz: require("./locales/kz.json"),
       },
     },
+  },
+
+  styleResources: {
+    scss: ["~/assets/main.scss"],
   },
 
   build: {},

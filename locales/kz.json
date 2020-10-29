@@ -1,3 +1,12 @@
 {
-  "hello": "kzПривет"
+  "hello": "Привет",
+  "header": {
+    "football": "Футбол",
+    "hockey": "Хоккей",
+    "boxing": "Бокс",
+    "forecasts": "Прогнозы",
+    "interview": "Интервью",
+    "cybersport": "Cybersport",
+    "live": "Live"
+  }
 }
