@@ -22,10 +22,10 @@ export const actions = {
     );
     return data;
   },
-  async fetchPopular({ dispatch }) {
+  async fetchPopular({ dispatch }, { limit } = { limit: 3 }) {
     const { $axios } = window.$nuxt.context;
     const { data: posts } = await $axios.get(
-      "/posts?per_page=3&_fields=date,slug,title,categories,featured_media&order=asc"
+      `/posts?per_page=${limit}&_fields=date,slug,title,categories,featured_media,excerpt&order=asc`
     );
 
     const categories = await dispatch("fetchCategories", posts);

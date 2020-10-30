@@ -1,0 +1,80 @@
+<template>
+  <article class="news-block d-flex">
+    <div class="image mr-10 clickable">
+      <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
+    </div>
+    <div class="text-wrapper d-flex flex-column justify-between">
+      <div class="header-wrapper">
+        <h5 class="h5 clickable">{{ post.title.rendered }}</h5>
+        <p class="sub-header mt-2" v-html="description"></p>
+      </div>
+      <div class="category-wrapper mt-8">
+        <span class="category clickable">
+          {{ post.category }}
+        </span>
+        <span class="mx-2 date">|</span>
+        <span class="date">{{ date }} </span>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script>
+export default {
+  name: "ImageNewsBlock",
+  props: {
+    post: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    date() {
+      return this.post.date;
+    },
+    description() {
+      if (this.post.excerpt.rendered.length > 100)
+        return this.post.excerpt.rendered.slice(0, 100);
+      return this.post.excerpt.rendered;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.news-block {
+  grid-column: span 4;
+  height: 260px;
+}
+.text-wrapper {
+  flex: 1;
+}
+.image {
+  flex: 1;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.category {
+  font-family: Proxima Nova;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $colorTag;
+}
+.date {
+  font-family: Proxima Nova;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $colorGray;
+}
+</style>

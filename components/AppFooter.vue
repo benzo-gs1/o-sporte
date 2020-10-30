@@ -27,7 +27,7 @@
                   v-if="item.live"
                   color="var(--color-tag)"
                   size="14px"
-                  class="ml-2"
+                  class="ml-2 mt-1"
                 />
               </div>
             </nuxt-link>
@@ -44,6 +44,7 @@
             height="29px"
             color="#EB5757"
             style="transform: rotate(24.4deg)"
+            class="mr-n2"
           />
           Спорте
         </nuxt-link>
