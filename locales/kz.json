@@ -1,30 +1,30 @@
 {
-  "hello": "Привет",
+  "hello": "kkПривет",
   "links": {
-    "title": "Ссылки",
-    "football": "Футбол",
-    "hockey": "Хоккей",
-    "boxing": "Бокс",
-    "forecasts": "Прогнозы",
-    "interview": "Интервью",
-    "cybersport": "Киберспорт",
-    "news": "Новости",
-    "live": "Live"
+    "title": "kkСсылки",
+    "football": "kkФутбол",
+    "hockey": "kkХоккей",
+    "boxing": "kkБокс",
+    "forecasts": "kkПрогнозы",
+    "interview": "kkИнтервью",
+    "cybersport": "kkКиберспорт",
+    "news": "kkНовости",
+    "live": "kkLive"
   },
   "home": {
-    "popular": "Популярные новости",
-    "live": "Прямой эфир",
-    "games": "Матчи",
+    "popular": "kkПопулярные новости",
+    "live": "kkПрямой эфир",
+    "games": "kkМатчи",
     "games-navigation": {
-      "yesterday": "Вчера",
-      "today": "Сегодня",
-      "tomorrow": "Завтра"
+      "yesterday": "kkВчера",
+      "today": "kkСегодня",
+      "tomorrow": "kkЗавтра"
     },
-    "news": "Лента новостей",
-    "exclusives": "Эксклюзив"
+    "news": "kkЛента новостей",
+    "exclusives": "kkЭксклюзив"
   },
   "footer": {
-    "copyright": "OSporte Media — All Rights Reserved",
-    "social": "Мы в социальных сетях"
+    "copyright": "kkOSporte Media — All Rights Reserved",
+    "social": "kkМы в социальных сетях"
   }
 }

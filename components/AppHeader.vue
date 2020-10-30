@@ -21,6 +21,7 @@
           size="18px"
           clickable
           class="ml-16"
+          @click.native="isSearching = !isSearching"
         />
       </nav>
       <div class="language-wrapper">
@@ -42,6 +43,11 @@
         >
           Каз
         </nuxt-link>
+      </div>
+    </div>
+    <div v-show="isSearching" class="overlay search-block">
+      <div class="wrapper content-wrapper">
+        <input type="text" />
       </div>
     </div>
   </header>
@@ -83,6 +89,7 @@ export default {
           live: true,
         },
       ],
+      isSearching: false,
     };
   },
   computed: {
@@ -97,6 +104,15 @@ export default {
 #app-header {
   height: 110px;
   background-color: $colorHeader;
+  z-index: 2;
+  position: relative;
+}
+
+.search-block {
+  z-index: 1;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+  top: 80%;
+  height: 100vh;
 }
 
 .logo {
