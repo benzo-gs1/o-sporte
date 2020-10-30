@@ -51,10 +51,18 @@ export default {
 }
 .image {
   flex: 1;
+  overflow: hidden;
   img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transition: 0.2s all ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
   }
 }
 .category {

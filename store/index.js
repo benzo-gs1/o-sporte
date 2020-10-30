@@ -37,4 +37,19 @@ export const actions = {
       category: categories.find((c) => post.categories.includes(c.id)).name,
     }));
   },
+  async fetchExclusive({ dispatch }) {
+    const { $axios } = window.$nuxt.context;
+    const { data: posts } = await $axios.get(
+      `/posts?_fields=date,slug,title,categories,featured_media,excerpt&order=asc&categories=18`
+    );
+
+    const categories = await dispatch("fetchCategories", posts);
+    const medias = await dispatch("fetchMedias", posts);
+
+    return posts.map((post) => ({
+      ...post,
+      media: medias.find((m) => m.id === post.featured_media),
+      category: categories.find((c) => post.categories.includes(c.id)).name,
+    }));
+  },
 };
