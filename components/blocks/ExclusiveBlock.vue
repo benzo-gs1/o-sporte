@@ -1,6 +1,9 @@
 <template>
   <article class="exclusive-block d-flex flex-column pa-7 clickable">
-    <span class="category tag_small">{{ post.category }}</span>
+    <category-link
+      :category-id="post.categories[0]"
+      :name="post.category"
+    ></category-link>
     <h4 class="h6">{{ post.title.rendered }}</h4>
     <span class="date sub-header mt-4">{{ date }}</span>
     <div class="overlay">

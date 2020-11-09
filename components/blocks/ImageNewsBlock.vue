@@ -9,9 +9,10 @@
         <p class="sub-header mt-2" v-html="description"></p>
       </div>
       <div class="category-wrapper mt-8">
-        <span class="category clickable">
-          {{ post.category }}
-        </span>
+        <category-link
+          :category-id="post.categories[0]"
+          :name="post.category"
+        ></category-link>
         <span class="mx-2 date">|</span>
         <span class="date">{{ date }} </span>
       </div>
@@ -56,13 +57,6 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: 0.2s all ease;
-  }
-
-  &:hover {
-    img {
-      transform: scale(1.1);
-    }
   }
 }
 .category {

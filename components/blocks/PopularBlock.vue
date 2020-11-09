@@ -1,9 +1,9 @@
 <template>
-  <article
-    class="popular-block d-flex flex-column pa-7 clickable"
-    :style="styles"
-  >
-    <span class="category tag_small">{{ post.category }}</span>
+  <article class="popular-block d-flex flex-column pa-7" :style="styles">
+    <category-link
+      :category-id="post.categories[0]"
+      :name="post.category"
+    ></category-link>
     <h4 :class="header">{{ post.title.rendered }}</h4>
     <span class="date sub-header mt-4">{{ date }}</span>
     <img
@@ -65,14 +65,9 @@ export default {
 }
 .h4,
 .h6,
-.date,
-.category {
+.date {
   color: $colorWhite;
   z-index: 1;
-}
-
-.category {
-  color: $colorTag;
 }
 .date {
   color: $colorLightGray;

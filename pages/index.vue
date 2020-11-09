@@ -14,7 +14,7 @@ export default {
   name: "HomePage",
   head() {
     return {
-      title: "О Спорте",
+      title: this.$t("home.title"),
     };
   },
 };
