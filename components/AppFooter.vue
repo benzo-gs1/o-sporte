@@ -51,7 +51,7 @@
         <p class="copyright">&copy;{{ $t("footer.copyright") }}</p>
       </div>
       <div class="social-wrapper">
-        <div class="adds adds-placeholder" style="height: 80px"></div>
+        <!-- <div class="adds adds-placeholder" style="height: 80px"></div> -->
         <p class="social-title mt-2">
           {{ $t("footer.social") }}
         </p>
