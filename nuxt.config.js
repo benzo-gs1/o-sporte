@@ -31,7 +31,7 @@ export default {
   ],
 
   axios: {
-    baseURL: "https://1sport.kz/wp-json/wp/v2",
+    baseURL: "https://195.210.46.20/wp-json/wp/v2",
   },
 
   i18n: {
