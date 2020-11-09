@@ -25,7 +25,7 @@
         />
       </nav>
       <div class="language-wrapper">
-        <nuxt-link
+        <!-- <nuxt-link
           :to="switchLocalePath('ru')"
           class="nav-link"
           :class="{
@@ -33,8 +33,8 @@
           }"
         >
           Рус
-        </nuxt-link>
-        <nuxt-link
+        </nuxt-link> -->
+        <!-- <nuxt-link
           :to="switchLocalePath('kz')"
           class="nav-link"
           :class="{
@@ -42,7 +42,7 @@
           }"
         >
           Каз
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </div>
     <div v-show="isSearching" class="overlay search-block">
