@@ -51,13 +51,6 @@ export default {
 
   .image {
     z-index: 0;
-    img {
-      transition: all 0.2s ease;
-
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
 
     &::after {
       @extend .overlay;

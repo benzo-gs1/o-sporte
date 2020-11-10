@@ -1,11 +1,11 @@
 <template>
   <div id="home-page">
     <popular-section></popular-section>
-    <live-section></live-section>
-    <!-- <div class="adds adds-placeholder mt-10 mb-8" style="height: 100px"></div> -->
-    <games-section></games-section>
     <news-section></news-section>
+    <!-- <div class="adds adds-placeholder mt-10 mb-8" style="height: 100px"></div> -->
     <exclusives-section></exclusives-section>
+    <games-section></games-section>
+    <live-section></live-section>
   </div>
 </template>
 

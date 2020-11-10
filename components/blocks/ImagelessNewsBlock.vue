@@ -1,7 +1,7 @@
 <template>
-  <article class="news-block">
+  <article class="news-block d-flex flex-column justify-between">
     <header-5 :title="post.title.rendered" link="some-url"></header-5>
-    <div class="category-wrapper mt-8">
+    <div class="category-wrapper mt-4">
       <category-link
         :category-id="post.categories[0]"
         :name="post.category"

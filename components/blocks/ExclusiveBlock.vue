@@ -55,13 +55,6 @@ export default {
     z-index: 0;
     background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
   }
-
-  img {
-    transition: 0.2s all ease;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
 }
 
 .h6 {
