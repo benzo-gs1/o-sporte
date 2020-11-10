@@ -1,5 +1,9 @@
 {
   "hello": "Привет",
+  "time": {
+    "today": "Сегодня",
+    "yesterday": "Вчера"
+  },
   "links": {
     "title": "Ссылки",
     "football": "Футбол",

@@ -17,7 +17,7 @@ export default {
 
   css: ["~/assets/main.scss", "~/assets/fonts.css"],
 
-  plugins: [],
+  plugins: ["~/plugins/moment.js"],
 
   components: true,
 

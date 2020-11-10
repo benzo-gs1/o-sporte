@@ -98,7 +98,6 @@ $bpMobileMin: 320px;
     padding: $r;
   }
 
-
   $n: $i * -4px;
   .pt-n#{$i} {
     padding-top: $n;
@@ -284,4 +283,16 @@ $bpMobileMin: 320px;
   height: 2px;
   background-color: $colorLightGray;
   grid-column: span 8;
+}
+
+.date {
+  font-family: Proxima Nova;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $colorGray;
+  z-index: 1;
 }

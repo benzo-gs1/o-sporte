@@ -14,7 +14,7 @@
           :name="post.category"
         ></category-link>
         <span class="mx-2 date">|</span>
-        <span class="date">{{ date }} </span>
+        <date-block :date="date"></date-block>
       </div>
     </div>
   </article>
@@ -58,25 +58,5 @@ export default {
     width: 100%;
     object-fit: cover;
   }
-}
-.category {
-  font-family: Proxima Nova;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 19px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: $colorTag;
-}
-.date {
-  font-family: Proxima Nova;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: $colorGray;
 }
 </style>

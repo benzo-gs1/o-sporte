@@ -9,7 +9,7 @@
       :title="post.title.rendered"
       link="some-url"
     ></header-4>
-    <span class="date sub-header mt-4">{{ date }}</span>
+    <date-block class="date sub-header mt-4" :date="post.date"></date-block>
     <post-link class="image overlay" link="some-url">
       <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
     </post-link>
@@ -39,9 +39,6 @@ export default {
       if (this.area.includes("small")) return "h6";
       return "h4";
     },
-    date() {
-      return this.post.date;
-    },
   },
 };
 </script>
@@ -70,8 +67,7 @@ export default {
   }
 }
 .h4,
-.h6,
-.date {
+.h6 {
   text-decoration: none;
   color: $colorWhite;
   z-index: 1;

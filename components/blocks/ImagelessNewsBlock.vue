@@ -7,7 +7,7 @@
         :name="post.category"
       ></category-link>
       <span class="mx-2 date">|</span>
-      <span class="date">{{ date }} </span>
+      <date-block :date="date"></date-block>
     </div>
   </article>
 </template>
@@ -32,15 +32,5 @@ export default {
 <style lang="scss" scoped>
 .news-block {
   grid-column: span 4;
-}
-.date {
-  font-family: Proxima Nova;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: $colorGray;
 }
 </style>

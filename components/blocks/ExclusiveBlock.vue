@@ -1,11 +1,11 @@
 <template>
-  <article class="exclusive-block d-flex flex-column pa-7 clickable">
+  <article class="exclusive-block d-flex flex-column pa-7">
     <category-link
       :category-id="post.categories[0]"
       :name="post.category"
     ></category-link>
     <Header4 class="h6" :title="post.title.rendered" link="some-url"></Header4>
-    <span class="date sub-header mt-4">{{ date }}</span>
+    <date-block class="date sub-header mt-4" :date="date"></date-block>
     <post-link class="image overlay" link="some-url">
       <img
         class="image"
@@ -64,16 +64,11 @@ export default {
   }
 }
 
-.h6,
-.date,
-.category {
+.h6 {
   color: $colorWhite;
   z-index: 1;
 }
 
-.category {
-  color: $colorTag;
-}
 .date {
   color: $colorLightGray;
 }
