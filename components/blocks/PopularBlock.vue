@@ -4,13 +4,15 @@
       :category-id="post.categories[0]"
       :name="post.category"
     ></category-link>
-    <h4 :class="header">{{ post.title.rendered }}</h4>
+    <header-4
+      :class="header"
+      :title="post.title.rendered"
+      link="some-url"
+    ></header-4>
     <span class="date sub-header mt-4">{{ date }}</span>
-    <img
-      class="overlay image"
-      :src="post.media.guid.rendered"
-      :alt="post.media.alt_text"
-    />
+    <post-link class="image overlay" link="some-url">
+      <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
+    </post-link>
   </article>
 </template>
 
@@ -50,22 +52,27 @@ export default {
   justify-content: flex-end;
   overflow: hidden;
 
-  &::after {
-    @extend .overlay;
+  .image {
+    z-index: 0;
+    img {
+      transition: all 0.2s ease;
 
-    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
-  }
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
 
-  &:hover {
-    .image {
-      transition: all 0.3s ease;
-      transform: scale(1.1);
+    &::after {
+      @extend .overlay;
+      z-index: 0;
+      background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
     }
   }
 }
 .h4,
 .h6,
 .date {
+  text-decoration: none;
   color: $colorWhite;
   z-index: 1;
 }

@@ -4,15 +4,15 @@
       :category-id="post.categories[0]"
       :name="post.category"
     ></category-link>
-    <h4 class="h6">{{ post.title.rendered }}</h4>
+    <Header4 class="h6" :title="post.title.rendered" link="some-url"></Header4>
     <span class="date sub-header mt-4">{{ date }}</span>
-    <div class="overlay">
+    <post-link class="image overlay" link="some-url">
       <img
         class="image"
         :src="post.media.guid.rendered"
         :alt="post.media.alt_text"
       />
-    </div>
+    </post-link>
   </article>
 </template>
 
@@ -40,11 +40,6 @@ export default {
   justify-content: flex-end;
   overflow: hidden;
 
-  &::after {
-    @extend .overlay;
-
-    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
-  }
   height: 415px;
   border-radius: 15px;
 }
@@ -53,11 +48,19 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.2s all ease;
-}
-.overlay:hover {
-  .image {
-    transform: scale(1.1);
+  z-index: 0;
+
+  &::after {
+    @extend .overlay;
+    z-index: 0;
+    background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
+  }
+
+  img {
+    transition: 0.2s all ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 

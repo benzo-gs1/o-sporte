@@ -1,11 +1,11 @@
 <template>
   <article class="news-block d-flex">
-    <div class="image mr-10 clickable">
+    <post-link class="image mr-10" link="some-url">
       <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
-    </div>
+    </post-link>
     <div class="text-wrapper d-flex flex-column justify-between">
       <div class="header-wrapper">
-        <h5 class="h5 clickable">{{ post.title.rendered }}</h5>
+        <header-5 :title="post.title.rendered" link="some-url"></header-5>
         <p class="sub-header mt-2" v-html="description"></p>
       </div>
       <div class="category-wrapper mt-8">

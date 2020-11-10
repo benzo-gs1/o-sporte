@@ -1,6 +1,6 @@
 <template>
   <article class="news-block">
-    <h5 class="h5 clickable">{{ post.title.rendered }}</h5>
+    <header-5 :title="post.title.rendered" link="some-url"></header-5>
     <div class="category-wrapper mt-8">
       <category-link
         :category-id="post.categories[0]"
