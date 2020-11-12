@@ -4,11 +4,19 @@
       <img :src="image" alt="live-footage" />
     </div>
     <div class="d-flex flex-column content pa-5">
-      <span class="category">{{ post.category }}</span>
+      <category-link
+        class="category"
+        :category-id="12"
+        :name="post.category"
+      ></category-link>
       <h3 class="h3 mt-1">{{ post.title }}</h3>
       <p class="description mt-1">{{ post.description }}</p>
       <p class="time mt-6">{{ post.time }}</p>
-      <span class="live mt-4 tag_small clickable">В ЭФИРЕ</span>
+      <category-link
+        class="mt-4"
+        :category-id="12"
+        name="В ЭФИРЕ"
+      ></category-link>
     </div>
   </article>
 </template>
@@ -32,10 +40,14 @@ export default {
 
 <style lang="scss" scoped>
 .live-block {
+  min-width: 580px;
   width: 580px;
   border-radius: 10px;
   border: 2px solid $colorLightGray;
   overflow: hidden;
+
+  margin-right: 40px;
+  transform: translateX(20px);
 }
 
 .image {
@@ -48,15 +60,7 @@ export default {
     object-fit: cover;
   }
 }
-
 .category {
-  font-family: Proxima Nova;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 19px;
-  letter-spacing: 0em;
-  text-align: left;
   color: $colorGray;
 }
 .description {
@@ -78,7 +82,22 @@ export default {
   text-align: left;
   color: $colorGray;
 }
-.live {
-  color: $colorTag;
+@media (max-width: $bpTabletMin) {
+  .live-block {
+    min-width: 537px;
+    width: 537px;
+  }
+}
+@media (max-width: $bpMobileMax + 100px) {
+  .live-block {
+    min-width: 325px;
+    width: 325px;
+  }
+
+  .h3 {
+    font-size: 24px !important;
+    line-height: 29px !important;
+    letter-spacing: 0em !important;
+  }
 }
 </style>

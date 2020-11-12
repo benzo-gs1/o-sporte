@@ -130,6 +130,7 @@ export default {
 
 <style lang="scss" scoped>
 #app-footer {
+  margin-top: 40px;
   height: 350px;
   background-color: black;
 }

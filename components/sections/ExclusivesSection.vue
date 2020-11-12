@@ -34,7 +34,6 @@ export default {
 <style lang="scss" scoped>
 .content-grid {
   display: flex;
-  // white-space: nowrap;
   overflow-x: auto;
 
   &::-webkit-scrollbar {
@@ -42,8 +41,5 @@ export default {
   }
   width: calc(100% + 40px);
   transform: translateX(-20px);
-}
-
-@media (max-width: $bpTabletMax) {
 }
 </style>

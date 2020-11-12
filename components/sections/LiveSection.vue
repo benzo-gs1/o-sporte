@@ -49,8 +49,13 @@ export default {
 
 <style lang="scss" scoped>
 .content-grid {
-  height: 530px;
-  gap: 40px;
-  overflow-x: scroll;
+  display: flex;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  width: calc(100% + 40px);
+  transform: translateX(-20px);
 }
 </style>
