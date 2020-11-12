@@ -5,7 +5,11 @@
     </post-link>
     <div class="text-wrapper d-flex flex-column justify-between">
       <div class="header-wrapper">
-        <header-5 :title="post.title.rendered" link="some-url"></header-5>
+        <header-5
+          class="news-title"
+          :title="post.title.rendered"
+          link="some-url"
+        ></header-5>
         <p class="sub-header mt-2" v-html="description"></p>
       </div>
       <div class="category-wrapper mt-8">
@@ -45,7 +49,7 @@ export default {
 <style lang="scss" scoped>
 .news-block {
   grid-column: span 4;
-  height: 260px;
+  min-height: 260px;
 }
 .text-wrapper {
   flex: 1;
@@ -57,6 +61,39 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+}
+@media (max-width: $bpTabletMin) {
+  .news-block {
+    grid-column: span 8;
+  }
+}
+@media (max-width: $bpMobileMax) {
+  .news-block {
+    flex-direction: column;
+    border-radius: 10px;
+    border: 2px solid $colorLightGray;
+    padding-bottom: 20px;
+    min-height: 0px;
+  }
+  .text-wrapper {
+    margin-top: 20px;
+    padding: {
+      left: 12px;
+      right: 12px;
+    }
+  }
+  .news-title {
+    font-size: 24px !important;
+    line-height: 29px !important;
+    letter-spacing: 0em !important;
+  }
+
+  .image {
+    display: block;
+    margin-right: 0px;
+    height: 190px;
+    border-radius: 10px 10px 0px 0px;
   }
 }
 </style>

@@ -1,6 +1,10 @@
 <template>
   <article class="news-block d-flex flex-column justify-between">
-    <header-5 :title="post.title.rendered" link="some-url"></header-5>
+    <header-5
+      class="news-title"
+      :title="post.title.rendered"
+      link="some-url"
+    ></header-5>
     <div class="category-wrapper mt-4">
       <category-link
         :category-id="post.categories[0]"
@@ -32,5 +36,17 @@ export default {
 <style lang="scss" scoped>
 .news-block {
   grid-column: span 4;
+}
+@media (max-width: $bpTabletMin) {
+  .news-title {
+    font-size: 20px !important;
+    line-height: 24px !important;
+    letter-spacing: 0em !important;
+  }
+}
+@media (max-width: $bpMobileMax) {
+  .news-block {
+    grid-column: span 8;
+  }
 }
 </style>
