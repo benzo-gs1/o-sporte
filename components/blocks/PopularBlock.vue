@@ -1,6 +1,7 @@
 <template>
   <article class="popular-block d-flex flex-column pa-7" :style="styles">
     <category-link
+      class="mb-2"
       :category-id="post.categories[0]"
       :name="post.category"
     ></category-link>
@@ -67,5 +68,53 @@ export default {
 }
 .date {
   color: $colorLightGray;
+}
+
+@media (max-width: $bpTabletMax) {
+  .popular-block {
+    &:nth-child(1) {
+      min-height: 500px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      min-height: 230px;
+    }
+  }
+}
+@media (max-width: $bpTabletMin) {
+  .h4 {
+    font-size: 24px !important;
+    line-height: 29px !important;
+    letter-spacing: 0em !important;
+  }
+  .h6 {
+    font-size: 16px !important;
+    line-height: 19px !important;
+    letter-spacing: 0em !important;
+  }
+  .popular-block {
+    &:nth-child(1) {
+      min-height: 400px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      min-height: 230px;
+    }
+    padding: 12px;
+  }
+}
+@media (max-width: $bpMobileMax) {
+  .h4 {
+    font-size: 16px !important;
+    line-height: 19px !important;
+    letter-spacing: 0em !important;
+  }
+  .popular-block {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      min-height: 250px;
+    }
+  }
 }
 </style>

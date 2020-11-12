@@ -35,10 +35,29 @@ export default {
 
 <style lang="scss" scoped>
 .content-grid {
-  height: 500px;
+  min-height: 500px;
   grid-template-areas:
     "big big big big big small-1 small-1 small-1"
     "big big big big big small-2 small-2 small-2";
   gap: 40px;
+}
+
+@media (max-width: $bpTabletMax) {
+  .content-grid {
+    min-height: 0px;
+    grid-template-areas:
+      "big big big big big big big big"
+      "small-1 small-1 small-1 small-1 small-2 small-2 small-2 small-2";
+  }
+}
+
+@media (max-width: $bpMobileMax) {
+  .content-grid {
+    min-height: 0px;
+    grid-template-areas:
+      "big big big big big big big big"
+      "small-1 small-1 small-1 small-1 small-1 small-1 small-1 small-1"
+      "small-2 small-2 small-2 small-2 small-2 small-2 small-2 small-2";
+  }
 }
 </style>
