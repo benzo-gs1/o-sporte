@@ -48,7 +48,7 @@
           />
           Спорте
         </nuxt-link>
-        <p class="copyright">&copy;{{ $t("footer.copyright") }}</p>
+        <p class="copyright">&copy; {{ $t("footer.copyright") }}</p>
       </div>
       <div class="social-wrapper">
         <!-- <div class="adds adds-placeholder" style="height: 80px"></div> -->
@@ -189,5 +189,46 @@ export default {
   text-align: right;
 
   color: $colorLightGray;
+}
+
+@media (max-width: $bpTabletMax) {
+  #app-footer {
+    height: 475px;
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+  .navigation-wrapper {
+    grid-row: 1 / 3;
+    .navigation {
+      flex-direction: column;
+    }
+  }
+  .logo-wrapper {
+    align-items: center;
+  }
+  .social-wrapper {
+    justify-self: flex-end;
+    grid-row: 1 / 2;
+  }
+}
+@media (max-width: $bpMobileMax + 100px) {
+  #app-footer {
+    height: 630px;
+  }
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .navigation-wrapper {
+    grid-row: 1 / 2;
+  }
+  .social-wrapper {
+    grid-row: 2 / 3;
+  }
+  .social-title {
+    font-size: 16px;
+  }
 }
 </style>
