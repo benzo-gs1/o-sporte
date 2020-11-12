@@ -35,13 +35,16 @@ export default {
 
 <style lang="scss" scoped>
 .exclusive-block {
-  grid-column: span 2;
   position: relative;
   justify-content: flex-end;
   overflow: hidden;
 
+  min-width: 270px;
+  width: 270px;
   height: 415px;
   border-radius: 15px;
+  margin-right: 40px;
+  transform: translateX(20px);
 }
 
 .image {

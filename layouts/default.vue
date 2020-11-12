@@ -2,7 +2,7 @@
   <div id="app">
     <app-header></app-header>
     <main id="main">
-      <Nuxt class="content-wrapper" />
+      <Nuxt />
     </main>
     <app-footer></app-footer>
   </div>

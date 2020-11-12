@@ -1,5 +1,5 @@
 <template>
-  <article-section name="home.exclusives" class="mb-20">
+  <article-section name="home.exclusives" class="exclusives-section">
     <div v-if="posts.length" class="content-grid">
       <exclusive-block
         v-for="post in posts"
@@ -33,6 +33,17 @@ export default {
 
 <style lang="scss" scoped>
 .content-grid {
-  gap: 40px;
+  display: flex;
+  // white-space: nowrap;
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  width: calc(100% + 40px);
+  transform: translateX(-20px);
+}
+
+@media (max-width: $bpTabletMax) {
 }
 </style>
