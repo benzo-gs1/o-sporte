@@ -63,4 +63,10 @@ export default {
   background-color: $colorBlue;
   color: $colorWhite;
 }
+
+@media (max-width: $bpTabletMax) {
+  .game-block {
+    width: 100%;
+  }
+}
 </style>

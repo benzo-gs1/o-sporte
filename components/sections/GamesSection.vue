@@ -1,6 +1,6 @@
 <template>
   <article-section name="home.games" class="game-section">
-    <nav class="games-navigation d-flex align-center justify-between px-6">
+    <nav class="games-navigation d-flex align-center justify-between px-6 py-3">
       <div class="actions d-flex align-center">
         <button
           v-for="item in navigation"
@@ -125,9 +125,10 @@ export default {
   border: 1px solid $colorLightGray;
 }
 .games-navigation {
-  height: 70px;
+  min-height: 70px;
   background-color: $colorLightGray;
   border-radius: 5px;
+  flex-wrap: wrap;
 }
 .selector {
   min-width: 200px;
@@ -147,6 +148,13 @@ export default {
   &_active {
     text-decoration-line: underline;
     color: $colorTag;
+  }
+}
+
+@media (max-width: $bpMobileMax + 100px) {
+  .selector {
+    margin-top: 20px;
+    width: 100%;
   }
 }
 </style>
