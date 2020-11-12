@@ -1,5 +1,9 @@
 export default {
   target: "static",
+  server: {
+    port: 8080,
+    host: "localhost",
+  },
 
   head: {
     title: "О Спорте",

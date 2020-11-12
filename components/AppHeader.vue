@@ -1,7 +1,7 @@
 <template>
   <header id="app-header">
     <div class="content-wrapper d-flex align-center justify-between">
-      <nuxt-link class="logo" :to="localePath('/')">OСпорте</nuxt-link>
+      <nuxt-link class="logo" :to="localePath('/')">ОСпорте</nuxt-link>
       <nav class="navigation d-flex">
         <nuxt-link
           v-for="item in items"
@@ -23,6 +23,13 @@
           class="ml-16"
           @click.native="isSearching = !isSearching"
         />
+      </nav>
+      <nav class="mobile-nav">
+        <div class="burger clickable">
+          <div class="mb-1"></div>
+          <div class="mb-1"></div>
+          <div></div>
+        </div>
       </nav>
       <div class="language-wrapper">
         <!-- <nuxt-link
@@ -132,6 +139,26 @@ export default {
   }
 }
 
+.mobile-nav {
+  display: none;
+  .burger {
+    width: 45px;
+    height: 20px;
+
+    div {
+      background-color: white;
+      height: 4px;
+
+      &:nth-child(2) {
+        width: 35px;
+      }
+      &:nth-child(3) {
+        width: 25px;
+      }
+    }
+  }
+}
+
 .nav-link {
   text-decoration: none;
   color: $colorWhite;
@@ -146,5 +173,16 @@ export default {
   &_active {
     color: $colorTag;
   }
+}
+@media (max-width: $bpTabletMax) {
+  .navigation,
+  .language-wrapper {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
+@media (max-width: $bpTabletMin) {
 }
 </style>

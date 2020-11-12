@@ -16,6 +16,7 @@ $colorTag: #ff8271;
   --color-tag: #{$colorTag};
 }
 
+$bpDesktopMin: 1250px;
 $bpTabletMax: 1000px;
 $bpTabletMin: 768px;
 $bpMobileMax: 480px;
@@ -196,23 +197,6 @@ $bpMobileMin: 320px;
   line-height: 95px;
 }
 
-@media (max-width: $bpTabletMax) {
-  .h5 {
-    font-family: Proxima Nova;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-  }
-  .title {
-    font-family: Proxima Nova;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 48px;
-    line-height: 70px;
-  }
-}
-
 .sub-header {
   font-family: Proxima Nova;
   font-style: normal;
@@ -295,4 +279,30 @@ $bpMobileMin: 320px;
   text-align: left;
   color: $colorGray;
   z-index: 1;
+}
+
+@media (max-width: $bpDesktopMin) {
+  .content-wrapper {
+    width: 100%;
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+  }
+}
+@media (max-width: $bpTabletMax) {
+  .h5 {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .title {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 70px;
+  }
 }
