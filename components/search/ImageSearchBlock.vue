@@ -69,4 +69,15 @@ export default {
     object-fit: cover;
   }
 }
+
+@media (max-width: $bpDesktopMin) {
+  .search-block {
+    grid-column: span 4;
+  }
+}
+@media (max-width: $bpMobileMax) {
+  .search-block {
+    grid-column: span 8;
+  }
+}
 </style>

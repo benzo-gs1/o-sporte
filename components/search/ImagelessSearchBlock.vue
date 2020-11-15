@@ -36,4 +36,10 @@ export default {
   background-color: white;
   min-height: 170px;
 }
+
+@media (max-width: $bpMobileMax) {
+  .search-block {
+    grid-column: span 8;
+  }
+}
 </style>

@@ -26,7 +26,7 @@
           @click.native="exit"
         />
       </div>
-      <div class="content-wrapper py-8 d-flex">
+      <div class="content-wrapper categories py-8 d-flex">
         <nuxt-link
           v-for="category in parsedCategories"
           :key="category.id"
@@ -161,6 +161,13 @@ export default {
 .input-wrapper {
   background-color: $colorHeader;
 }
+.categories {
+  overflow-x: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 .search-icon,
 .exit-icon {
@@ -212,10 +219,17 @@ export default {
 
 .content-grid {
   gap: 40px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 32px;
+  grid-auto-rows: min-content;
   min-height: 100%;
 }
 .spacer {
   grid-column: span 8;
+  height: 32px;
+}
+
+@media (max-width: $bpDesktopMin) {
+  .exit-icon {
+    right: 20px;
+  }
 }
 </style>
