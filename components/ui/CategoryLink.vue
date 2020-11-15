@@ -23,7 +23,9 @@ export default {
         path: "/search",
         query: {
           category: this.categoryId,
+          page: 1,
         },
+        force: true,
       };
     },
   },

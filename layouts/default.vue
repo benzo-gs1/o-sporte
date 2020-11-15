@@ -2,7 +2,7 @@
   <div id="app">
     <app-header></app-header>
     <main id="main">
-      <Nuxt />
+      <Nuxt :key="$route.fullPath" />
     </main>
     <app-footer></app-footer>
   </div>

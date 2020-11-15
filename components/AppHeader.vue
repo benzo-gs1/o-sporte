@@ -21,7 +21,7 @@
           size="18px"
           clickable
           class="ml-16"
-          @click.native="isSearching = !isSearching"
+          @click.native="toggle"
         />
       </nav>
       <nav class="mobile-nav">
@@ -52,15 +52,13 @@
         </nuxt-link> -->
       </div>
     </div>
-    <div v-show="isSearching" class="overlay search-block">
-      <div class="wrapper content-wrapper">
-        <input type="text" />
-      </div>
-    </div>
+    <searching-block v-show="isSearching" ref="searchBlock"></searching-block>
   </header>
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   name: "AppHeader",
   data() {
@@ -96,12 +94,19 @@ export default {
           live: true,
         },
       ],
-      isSearching: false,
     };
   },
   computed: {
+    ...mapState(["isSearching"]),
     locale() {
       return this.$i18n.locale;
+    },
+  },
+  methods: {
+    ...mapMutations(["toggleSearching"]),
+    toggle() {
+      this.toggleSearching();
+      this.$refs.searchBlock.dropPosts();
     },
   },
 };
@@ -113,13 +118,6 @@ export default {
   background-color: $colorHeader;
   z-index: 2;
   position: relative;
-}
-
-.search-block {
-  z-index: 1;
-  background-color: rgba($color: #000000, $alpha: 0.9);
-  top: 80%;
-  height: 100vh;
 }
 
 .logo {

@@ -9,4 +9,12 @@ export default {
       required: true,
     },
   },
+  computed: {
+    parsedTitle() {
+      if (this.title.length > 70) {
+        return this.title.slice(0, 67) + "...";
+      }
+      return this.title;
+    },
+  },
 };

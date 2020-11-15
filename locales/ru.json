@@ -1,8 +1,20 @@
 {
   "hello": "Привет",
+  "search": "Поиск",
+  "no-data": "Ничего не найдено :(",
   "time": {
     "today": "Сегодня",
     "yesterday": "Вчера"
+  },
+  "categories": {
+    "football": "Футбол",
+    "hockey": "Хоккей",
+    "boxing": "Бокс",
+    "forecasts": "Прогнозы",
+    "interview": "Интервью",
+    "cybersport": "Киберспорт",
+    "tennis": "Тенис",
+    "exclusive": "Эксклюзив"
   },
   "links": {
     "title": "Ссылки",

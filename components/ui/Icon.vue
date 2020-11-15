@@ -1,5 +1,5 @@
 <template>
-  <a :href="link">
+  <a class="icon" :href="link">
     <img
       :src="image"
       :alt="alt"
@@ -44,3 +44,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.icon {
+  display: inline-block;
+}
+</style>

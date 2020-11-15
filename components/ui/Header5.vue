@@ -1,7 +1,7 @@
 <template>
   <post-link class="h5" :link="link">
     <h4>
-      {{ title }}
+      {{ parsedTitle }}
     </h4>
   </post-link>
 </template>
