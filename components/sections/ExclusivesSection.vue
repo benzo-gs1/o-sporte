@@ -17,7 +17,8 @@ import { mapActions } from "vuex";
 export default {
   name: "ExclusivesSection",
   async fetch() {
-    this.posts = await this.fetchExclusive();
+    const { data } = await this.fetchExclusive();
+    this.posts = data;
   },
   fetchOnServer: false,
   data() {

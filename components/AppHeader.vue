@@ -65,27 +65,27 @@ export default {
       items: [
         {
           name: "links.football",
-          link: "/search?category=12",
+          link: "/search?category=12&page=1",
         },
         {
           name: "links.hockey",
-          link: "/search?category=13",
+          link: "/search?category=13&page=1",
         },
         {
           name: "links.boxing",
-          link: "/search?category=14",
+          link: "/search?category=14&page=1",
         },
         {
           name: "links.forecasts",
-          link: "/search?category=15",
+          link: "/search?category=15&page=1",
         },
         {
           name: "links.interview",
-          link: "/search?category=16",
+          link: "/search?category=16&page=1",
         },
         {
           name: "links.cybersport",
-          link: "/search?category=17",
+          link: "/search?category=17&page=1",
         },
         {
           name: "links.live",

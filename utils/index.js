@@ -27,3 +27,24 @@ export function parsePost(post) {
     },
   };
 }
+
+export function parsePostFull(post) {
+  return {
+    id: post.id,
+    date: post.date,
+    slug: post.slug,
+    title: post.title.rendered,
+    content: post.content.rendered,
+    excerpt: post.excerpt.rendered,
+    image: post._embedded["wp:featuredmedia"]
+      ? {
+          link: getTitleImage(post._embedded["wp:featuredmedia"], "full"),
+          alt: post._embedded["wp:featuredmedia"][0].alt_text,
+        }
+      : undefined,
+    category: {
+      id: post._embedded["wp:term"][0][0].id,
+      slug: post._embedded["wp:term"][0][0].slug,
+    },
+  };
+}

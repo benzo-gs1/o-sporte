@@ -1,17 +1,13 @@
 <template>
   <article class="exclusive-block d-flex flex-column pa-7">
     <category-link
-      :category-id="post.categories[0]"
-      :name="post.category"
+      :category-id="post.category.id"
+      :name="$t('categories.' + post.category.slug)"
     ></category-link>
-    <Header4 class="h6" :title="post.title.rendered" link="some-url"></Header4>
+    <Header4 class="h6" :title="post.title" :link="post.slug"></Header4>
     <date-block class="date sub-header mt-4" :date="date"></date-block>
-    <post-link class="image overlay" link="some-url">
-      <img
-        class="image"
-        :src="post.media.guid.rendered"
-        :alt="post.media.alt_text"
-      />
+    <post-link class="image overlay" :link="post.slug">
+      <img class="image" :src="post.image.link" :alt="post.image.alt" />
     </post-link>
   </article>
 </template>

@@ -18,7 +18,8 @@ import { mapActions } from "vuex";
 export default {
   name: "PopularSection",
   async fetch() {
-    this.posts = await this.fetchPopular();
+    const { data } = await this.fetchPopular();
+    this.posts = data;
   },
   fetchOnServer: false,
   data() {

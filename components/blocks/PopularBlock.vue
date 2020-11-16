@@ -2,17 +2,13 @@
   <article class="popular-block d-flex flex-column pa-7" :style="styles">
     <category-link
       class="mb-2"
-      :category-id="post.categories[0]"
-      :name="post.category"
+      :category-id="post.category.id"
+      :name="$t('categories.' + post.category.slug)"
     ></category-link>
-    <header-4
-      :class="header"
-      :title="post.title.rendered"
-      link="some-url"
-    ></header-4>
+    <header-4 :class="header" :title="post.title" :link="post.slug"></header-4>
     <date-block class="date sub-header mt-4" :date="post.date"></date-block>
-    <post-link class="image overlay" link="some-url">
-      <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
+    <post-link class="image overlay" :link="post.slug">
+      <img :src="post.image.link" :alt="post.image.alt" />
     </post-link>
   </article>
 </template>
