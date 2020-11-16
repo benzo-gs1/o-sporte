@@ -48,3 +48,29 @@ export function parsePostFull(post) {
     },
   };
 }
+
+export function parsePostArticle(post) {
+  return {
+    id: post.id,
+    date: post.date,
+    slug: post.slug,
+    title: post.title.rendered,
+    content: post.content.rendered,
+    excerpt: post.excerpt.rendered,
+    image: post._embedded["wp:featuredmedia"]
+      ? {
+          link: getTitleImage(post._embedded["wp:featuredmedia"], "full"),
+          alt: post._embedded["wp:featuredmedia"][0].alt_text,
+        }
+      : undefined,
+    author: post.acf.author,
+    categories: post._embedded["wp:term"][0].map((category) => ({
+      id: category.id,
+      slug: category.slug,
+    })),
+    tags: post._embedded["wp:term"][1].map((tag) => ({
+      id: tag.id,
+      name: tag.name,
+    })),
+  };
+}

@@ -1,9 +1,29 @@
+import axios from "axios";
+
 export default {
   target: "static",
   server: {
     port: 8080,
     host: "localhost",
   },
+  generate: {
+    async routes() {
+      const baseUrl = `https://api.1sport.kz/wp-json/wp/v2/posts?_fields=id,slug&per_page=100`;
+      const posts = [];
+      const { data, headers } = await axios.get(baseUrl);
+      const pages = headers["x-wp-totalpages"];
+      posts.push(...data);
+
+      for (let i = 2; i <= pages; i++) {
+        const { data } = await axios.get(`${baseUrl}&page=${i}`);
+        posts.push(...data);
+      }
+      const ru = posts.map((post) => "/posts/" + post.slug);
+      const kz = posts.map((post) => "/kz/posts/" + post.slug);
+      return [...ru, ...kz];
+    },
+  },
+  trailingSlash: true,
 
   head: {
     title: "О Спорте",

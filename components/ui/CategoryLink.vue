@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="tag_small" :to="path">
+  <nuxt-link class="tag_small" :to="localePath(path)">
     {{ name }}
   </nuxt-link>
 </template>

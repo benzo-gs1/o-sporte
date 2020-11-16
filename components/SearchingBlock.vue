@@ -31,7 +31,7 @@
           v-for="category in parsedCategories"
           :key="category.id"
           class="category"
-          :to="categoryLink(category.id)"
+          :to="localePath(categoryLink(category.id))"
         >
           {{ $t(category.name) }}
         </nuxt-link>

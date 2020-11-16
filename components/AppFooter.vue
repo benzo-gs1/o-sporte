@@ -81,19 +81,19 @@ export default {
         first: [
           {
             name: "links.football",
-            link: "/footbal",
+            link: "/search?category=12&page=1",
           },
           {
             name: "links.hockey",
-            link: "/hockey",
+            link: "/search?category=13&page=1",
           },
           {
             name: "links.boxing",
-            link: "/boxing",
+            link: "/search?category=14&page=1",
           },
           {
             name: "links.cybersport",
-            link: "/cybersport",
+            link: "/search?category=17&page=1",
           },
         ],
         second: [
@@ -103,11 +103,11 @@ export default {
           },
           {
             name: "links.interview",
-            link: "/interview",
+            link: "/search?category=16&page=1",
           },
           {
             name: "links.forecasts",
-            link: "/forecasts",
+            link: "/search?category=15&page=1",
           },
           {
             name: "links.live",

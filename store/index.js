@@ -1,4 +1,4 @@
-import { parsePost, parsePostFull } from "@/utils";
+import { parsePost, parsePostFull, parsePostArticle } from "@/utils";
 
 export const state = () => ({
   isSearching: false,
@@ -70,5 +70,17 @@ export const actions = {
         total: 0,
       };
     }
+  },
+  async fetchPosts() {
+    const { data } = await this.$axios.get(`/posts?&_fields=id,slug`);
+    return data;
+  },
+  async fetchPost(_, slug) {
+    const { data } = await this.$axios.get(
+      `/posts?_fields=id,date,slug,title,content,excerpt,_embedded,_links,acf&_embed=wp:term, wp:featuredmedia&slug=${slug}`
+    );
+    const post = data[0];
+    if (post) return parsePostArticle(post);
+    return false;
   },
 };
