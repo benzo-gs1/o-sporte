@@ -43,6 +43,7 @@
   },
   "search-page": {
     "title": "Результаты поиска",
+    "meta-title": "Поиск: {title} | Страница {page}",
     "found": "найдено ({total}) статей"
   },
   "footer": {

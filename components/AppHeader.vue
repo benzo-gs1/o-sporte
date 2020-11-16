@@ -8,7 +8,6 @@
           :key="item.link"
           :to="localePath(item.link)"
           class="nav-link"
-          active-class="nav-link_active"
         >
           <div class="d-flex align-center">
             <point v-if="item.live" size="9px" class="mr-1" />
@@ -66,27 +65,27 @@ export default {
       items: [
         {
           name: "links.football",
-          link: "/footbal",
+          link: "/search?category=12",
         },
         {
           name: "links.hockey",
-          link: "/hockey",
+          link: "/search?category=13",
         },
         {
           name: "links.boxing",
-          link: "/boxing",
+          link: "/search?category=14",
         },
         {
           name: "links.forecasts",
-          link: "/forecasts",
+          link: "/search?category=15",
         },
         {
           name: "links.interview",
-          link: "/interview",
+          link: "/search?category=16",
         },
         {
           name: "links.cybersport",
-          link: "/cybersport",
+          link: "/search?category=17",
         },
         {
           name: "links.live",
@@ -167,10 +166,6 @@ export default {
   font-size: 16px;
   line-height: 19px;
   margin-left: 28px;
-
-  &_active {
-    color: $colorTag;
-  }
 }
 @media (max-width: $bpTabletMax) {
   .navigation,

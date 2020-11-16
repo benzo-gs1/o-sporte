@@ -85,15 +85,21 @@ export const actions = {
   },
   async searchPosts(_, { query, category, page }) {
     const { $axios } = window.$nuxt.context;
-
-    const { data, headers } = await $axios.get(
-      `/posts?per_page=12&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia&${
-        query ? `search=${query}` : `categories=${category}`
-      }`
-    );
-    return {
-      data: data.map(parsePost),
-      total: Number.parseInt(headers["x-wp-total"]),
-    };
+    try {
+      const { data, headers } = await $axios.get(
+        `/posts?per_page=12&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia&${
+          query ? `search=${query}` : `categories=${category}`
+        }`
+      );
+      return {
+        data: data.map(parsePost),
+        total: Number.parseInt(headers["x-wp-total"]),
+      };
+    } catch (error) {
+      return {
+        data: [],
+        total: 0,
+      };
+    }
   },
 };

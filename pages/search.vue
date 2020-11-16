@@ -1,31 +1,47 @@
 <template>
   <section id="search-page" class="content-wrapper">
-    <h2 class="h2 mt-10 mb-8 d-flex align-center">
-      {{ $t("search-page.title") }} &ndash; "{{ title }}"
-    </h2>
-    <p class="mt-2 mb-6 found">
-      {{ $t("search-page.found", { total }) }}
-    </p>
-    <div class="content-grid">
-      <image-news-block
-        v-for="post in firstBlock"
-        :key="post.id"
-        :post="post"
-      ></image-news-block>
-      <hr class="hr" />
-      <imageless-news-block
-        v-for="post in imageless"
-        :key="post.id"
-        :post="post"
-      ></imageless-news-block>
-      <hr class="hr" />
-      <!-- <div class="ad"></div> -->
-      <image-news-block
-        v-for="post in secondBlock"
-        :key="post.id"
-        :post="post"
-      ></image-news-block>
-    </div>
+    <client-only>
+      <h2 class="h2 mt-10 mb-8 d-flex align-center">
+        <span>{{ $t("search-page.title") }}</span>
+        <span v-if="$route.query.query"> &ndash; "{{ title }}"</span>
+      </h2>
+      <template v-if="loading">
+        <loading-icon></loading-icon>
+      </template>
+      <template v-else-if="total">
+        <p class="mt-2 mb-6 found">
+          {{ $t("search-page.found", { total }) }}
+        </p>
+        <div class="content-grid">
+          <image-news-block
+            v-for="post in firstBlock"
+            :key="post.id"
+            :post="post"
+          ></image-news-block>
+          <hr v-if="imageless.length" class="hr" />
+          <imageless-news-block
+            v-for="post in imageless"
+            :key="post.id"
+            :post="post"
+          ></imageless-news-block>
+          <hr v-if="secondBlock.length" class="hr" />
+          <!-- <div class="ad"></div> -->
+          <image-news-block
+            v-for="post in secondBlock"
+            :key="post.id"
+            :post="post"
+          ></image-news-block>
+        </div>
+        <div class="pagination-wrapper mt-10">
+          <pagination :total="total" :page="page" @page-change="pageChange" />
+        </div>
+      </template>
+      <template v-else>
+        <p class="mt-2 mb-6 found">
+          {{ $t("no-data") }}
+        </p>
+      </template>
+    </client-only>
   </section>
 </template>
 
@@ -43,12 +59,13 @@ export default {
       posts: [],
       page: 1,
       total: 0,
+      loading: false,
     };
   },
   computed: {
     title() {
       const { category, query } = this.$route.query;
-      return query ?? category;
+      return query ?? category ?? "...";
     },
     firstBlock() {
       return this.posts.filter((item) => item.image).slice(0, 4);
@@ -79,12 +96,15 @@ export default {
     if (!category && !query) {
       return this.$router.replace("/");
     }
+
+    this.page = Number.parseInt(page);
   },
   methods: {
     ...mapMutations(["toggleSearching"]),
     ...mapActions(["searchPosts"]),
     async fetchPosts() {
       const { category, query } = this.$route.query;
+      this.loading = true;
       const { data, total } = await this.searchPosts({
         query,
         category,
@@ -92,11 +112,29 @@ export default {
       });
       this.total = total;
       this.posts = data;
+      this.loading = false;
+    },
+    pageChange(page) {
+      const { category, query } = this.$route.query;
+      this.$router.push({
+        path: "/search",
+        query: {
+          page,
+          category,
+          query,
+        },
+      });
     },
   },
   head() {
     return {
-      title: `Поиск: ${this.title} | Страница ${this.page}`,
+      title:
+        this.loading || this.total
+          ? this.$t("search-page.meta-title", {
+              title: this.title,
+              page: this.page,
+            })
+          : this.$t("no-data"),
     };
   },
 };
@@ -112,6 +150,7 @@ export default {
 }
 .content-grid {
   gap: 40px;
+  height: auto;
   grid-auto-rows: min-content;
 }
 </style>
