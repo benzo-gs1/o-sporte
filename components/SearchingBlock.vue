@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { mapActions, mapMutations } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 import debounce from "lodash.debounce";
 
 export default {
@@ -80,6 +80,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(["isSearching"]),
     parsedCategories() {
       const parsed = this.categories
         .map((item) => ({
@@ -111,6 +112,9 @@ export default {
       } else {
         this.toggleSearching();
         this.dropPosts();
+        document.querySelector("#app").style.overflowY = this.isSearching
+          ? "hidden"
+          : "";
       }
     },
     search() {
