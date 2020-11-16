@@ -2,13 +2,13 @@
   <article class="news-block d-flex flex-column justify-between">
     <header-5
       class="news-title"
-      :title="post.title.rendered"
-      link="some-url"
+      :title="post.title"
+      :link="post.slug"
     ></header-5>
     <div class="category-wrapper mt-4">
       <category-link
-        :category-id="post.categories[0]"
-        :name="post.category"
+        :category-id="post.category.id"
+        :name="$t('categories.' + post.category.slug)"
       ></category-link>
       <span class="mx-2 date">|</span>
       <date-block :date="date"></date-block>
@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 .news-block {
   grid-column: span 4;
+  min-height: 110px;
 }
 @media (max-width: $bpTabletMin) {
   .news-title {

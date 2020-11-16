@@ -1,4 +1,4 @@
-import { getTitleImage } from "@/utils";
+import { parsePost } from "@/utils";
 
 export const state = () => ({
   isSearching: false,
@@ -67,33 +67,33 @@ export const actions = {
       category: categories.find((c) => post.categories.includes(c.id)).name,
     }));
   },
+  async fetchNewsSection() {
+    const { $axios } = window.$nuxt.context;
+
+    const { data, headers } = await $axios.get(
+      `/posts?per_page=8&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia`
+    );
+    return {
+      data: data.map(parsePost),
+      total: Number.parseInt(headers["x-wp-total"]),
+    };
+  },
   async fetchSearchCategories() {
     const { $axios } = window.$nuxt.context;
     const { data } = await $axios.get(`/categories?_fields=id,slug&exclude=1`);
     return data;
   },
-  async searchPosts(_, query) {
+  async searchPosts(_, { query, category, page }) {
     const { $axios } = window.$nuxt.context;
-    const { data } = await $axios.get(
-      `/posts?per_page=12&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia&search=${query}`
+
+    const { data, headers } = await $axios.get(
+      `/posts?per_page=12&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia&${
+        query ? `search=${query}` : `categories=${category}`
+      }`
     );
-    return data.map((item) => ({
-      id: item.id,
-      date: item.date,
-      slug: item.slug,
-      title: item.title.rendered,
-      content: item.content.rendered,
-      excerpt: item.excerpt.rendered,
-      image: item._embedded["wp:featuredmedia"]
-        ? {
-            link: getTitleImage(item._embedded["wp:featuredmedia"], "medium"),
-            alt: item._embedded["wp:featuredmedia"][0].alt_text,
-          }
-        : undefined,
-      category: {
-        id: item._embedded["wp:term"][0][0].id,
-        slug: item._embedded["wp:term"][0][0].slug,
-      },
-    }));
+    return {
+      data: data.map(parsePost),
+      total: Number.parseInt(headers["x-wp-total"]),
+    };
   },
 };

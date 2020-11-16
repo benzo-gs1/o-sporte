@@ -133,8 +133,11 @@ export default {
     },
     fetchPosts: debounce(async function () {
       if (this.query.length <= 2) return;
-      const result = await this.searchPosts(this.query);
-      this.posts = result.length ? result : false;
+      const { data, total } = await this.searchPosts({
+        query: this.query,
+        page: 1,
+      });
+      this.posts = total ? data : false;
     }, 600),
     dropPosts() {
       this.posts = [];

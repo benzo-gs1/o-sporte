@@ -23,7 +23,8 @@ import { mapActions } from "vuex";
 export default {
   name: "NewsSection",
   async fetch() {
-    this.posts = await this.fetchPopular({ limit: 8 });
+    const { data } = await this.fetchNewsSection();
+    this.posts = data;
   },
   fetchOnServer: false,
   data() {
@@ -33,14 +34,14 @@ export default {
   },
   computed: {
     imageless() {
-      return this.posts.filter((post) => !post.media);
+      return this.posts.filter((post) => !post.image);
     },
     withImage() {
-      return this.posts.filter((post) => post.media);
+      return this.posts.filter((post) => post.image);
     },
   },
   methods: {
-    ...mapActions(["fetchPopular"]),
+    ...mapActions(["fetchNewsSection"]),
   },
 };
 </script>

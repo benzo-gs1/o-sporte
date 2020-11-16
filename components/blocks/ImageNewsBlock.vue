@@ -1,21 +1,21 @@
 <template>
   <article class="news-block d-flex">
-    <post-link class="image mr-10" link="some-url">
-      <img :src="post.media.guid.rendered" :alt="post.media.alt_text" />
+    <post-link class="image mr-10" :link="post.slug">
+      <img :src="post.image.link" :alt="post.image.alt" />
     </post-link>
     <div class="text-wrapper d-flex flex-column justify-between">
       <div class="header-wrapper">
         <header-5
           class="news-title"
-          :title="post.title.rendered"
-          link="some-url"
+          :title="post.title"
+          :link="post.slug"
         ></header-5>
         <p class="sub-header mt-2" v-html="description"></p>
       </div>
       <div class="category-wrapper mt-8">
         <category-link
-          :category-id="post.categories[0]"
-          :name="post.category"
+          :category-id="post.category.id"
+          :name="$t('categories.' + post.category.slug)"
         ></category-link>
         <span class="mx-2 date">|</span>
         <date-block :date="date"></date-block>
@@ -38,9 +38,9 @@ export default {
       return this.post.date;
     },
     description() {
-      if (this.post.excerpt.rendered.length > 100)
-        return this.post.excerpt.rendered.slice(0, 100);
-      return this.post.excerpt.rendered;
+      if (this.post.excerpt.length > 100)
+        return this.post.excerpt.slice(0, 100);
+      return this.post.excerpt;
     },
   },
 };
@@ -56,6 +56,7 @@ export default {
 }
 .image {
   flex: 1;
+  height: 260px;
   overflow: hidden;
   img {
     height: 100%;

@@ -41,6 +41,10 @@
     "news": "Лента новостей",
     "exclusives": "Эксклюзив"
   },
+  "search-page": {
+    "title": "Результаты поиска",
+    "found": "найдено ({total}) статей"
+  },
   "footer": {
     "copyright": "OSporte Media — All Rights Reserved",
     "social": "Мы в социальных сетях"
