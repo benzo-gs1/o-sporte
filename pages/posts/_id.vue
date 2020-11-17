@@ -133,6 +133,15 @@ export default {
         link: "#" + section.innerHTML,
       }));
     },
+    categories() {
+      return this.post.categories?.map((item) => item.slug) ?? [];
+    },
+    tags() {
+      return this.post.tags?.map((item) => item.name) ?? [];
+    },
+    keywords() {
+      return [...this.tags, ...this.categories].join(",").toLowerCase();
+    },
   },
   mounted() {
     this.buildContent();
@@ -172,6 +181,18 @@ export default {
   head() {
     return {
       title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.description,
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.keywords,
+        },
+      ],
     };
   },
 };

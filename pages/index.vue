@@ -15,6 +15,19 @@ export default {
   head() {
     return {
       title: this.$t("home.title"),
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Домашняя страница. Информационный портал про спортивные новости.",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: "спорт,новости",
+        },
+      ],
     };
   },
 };

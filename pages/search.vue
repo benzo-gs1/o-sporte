@@ -135,6 +135,19 @@ export default {
               page: this.page,
             })
           : this.$t("no-data"),
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Поиск новостей на ОСпорте. Информационный портал про спортивные новости.",
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: "спорт,новости",
+        },
+      ],
     };
   },
 };
