@@ -141,6 +141,10 @@ export default {
     if (this.$store.state.isSearching) {
       this.toggleSearching();
     }
+
+    if (!this.post) {
+      return this.$nuxt.error({ statusCode: 404 });
+    }
   },
   methods: {
     ...mapMutations(["toggleSearching"]),

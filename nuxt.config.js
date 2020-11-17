@@ -27,6 +27,7 @@ export default {
       globals.routes = [...ru, ...kz];
       return globals.routes;
     },
+    fallback: "404.html",
   },
   trailingSlash: true,
 
@@ -68,6 +69,7 @@ export default {
       priority: 1,
       lastmod: new Date(),
     },
+    exclude: ["/error"],
   },
 
   robots: [
@@ -75,10 +77,11 @@ export default {
       UserAgent: "*",
       Allow: "/",
       Sitemap: "https://1sport.kz/sitemap.xml",
-      Host: "http://1sport.kz",
+      Host: "https://1sport.kz",
+      Disallow: "/404.html",
     },
     {
-      Host: "https://1sport.kz",
+      Host: "http://1sport.kz",
     },
   ],
 
