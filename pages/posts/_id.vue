@@ -56,6 +56,20 @@
         <span class="author-name">{{ post.author }}</span>
       </div>
     </div>
+    <div class="social-share mt-15 mb-8">
+      <h5 class="social-share-title mb-5">Поделится</h5>
+      <div class="icons-wrapper d-flex mb-5">
+        <icon
+          v-for="icon in socials"
+          :key="icon.name"
+          :name="icon.name"
+          :alt="icon.name + '-social-icon'"
+          size="50px"
+          clickable
+          :link="icon.link"
+        />
+      </div>
+    </div>
     <section class="comments">
       <p class="comments-title mb-6">0 комментариев</p>
       <hr class="comments-separator" />
@@ -275,6 +289,23 @@ export default {
     border: 4px solid black;
   }
 }
+.social-share {
+  display: none;
+  grid-column: 1 / 5;
+  background-color: $colorLightGray;
+  padding: 10px;
+
+  .social-share-title {
+    font-family: Proxima Nova;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+  }
+
+  .icons-wrapper {
+    justify-content: space-between;
+  }
+}
 .email {
   grid-column: span 8;
   background-color: black;
@@ -319,6 +350,157 @@ export default {
   grid-column: span 8;
   height: 64px;
 }
+
+@media (max-width: $bpTabletMax) {
+  .title {
+    grid-column: span 8;
+    font-size: 48px;
+    line-height: 70px;
+  }
+
+  .time-wrapper {
+    grid-column: span 8;
+  }
+
+  .desktop-social-wrapper,
+  .exclusives {
+    display: none;
+  }
+
+  .table-of-contents,
+  .tags_article,
+  .author-card {
+    grid-column: 1 / 5;
+  }
+  .description {
+    grid-column: 1 / 7;
+  }
+
+  .social-share {
+    display: block;
+  }
+
+  .email {
+    .input-wrapper {
+      width: 85%;
+    }
+    &-agreement {
+      width: 85%;
+    }
+  }
+}
+@media (max-width: $bpTabletMin) {
+  .tag {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .title {
+    font-size: 38px;
+    line-height: 50px;
+  }
+  .title-image {
+    margin-bottom: -70px;
+  }
+
+  .table-of-contents {
+    grid-column: span 8;
+  }
+  .tags_article,
+  .author-card,
+  .social-share {
+    grid-column: 1 / 7;
+  }
+
+  .email {
+    .input-wrapper {
+      width: 90%;
+    }
+    &-agreement {
+      width: 90%;
+    }
+    &-title {
+      font-size: 24px;
+      line-height: 29px;
+    }
+    &-input {
+      font-size: 18px;
+    }
+    &-button {
+      font-size: 26px;
+    }
+  }
+}
+@media (max-width: $bpMobileMax + 100px) {
+  .title {
+    font-size: 28px;
+    line-height: 40px;
+  }
+  .title-image {
+    margin-bottom: -70px;
+  }
+
+  .tags_article,
+  .author-card,
+  .social-share {
+    grid-column: span 8;
+  }
+  .social-share {
+    &-title {
+      display: none;
+    }
+    .icons-wrapper {
+      margin-top: 20px;
+    }
+  }
+  .comments {
+    &-title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    &-separator {
+      border: 2px solid black;
+    }
+  }
+
+  .email {
+    .input-wrapper {
+      width: 95%;
+    }
+    &-agreement {
+      width: 95%;
+    }
+    &-input {
+      font-size: 16px;
+      padding: 16px 26px;
+    }
+    &-button {
+      font-size: 26px;
+      padding: 16px 26px;
+    }
+  }
+}
+@media (max-width: $bpMobileMax) {
+  .email {
+    .input-wrapper {
+      width: 100%;
+    }
+    &-agreement {
+      width: 100%;
+    }
+    &-title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    &-input {
+      font-size: 12px;
+      padding: 8px 14px;
+    }
+    &-button {
+      font-size: 14px;
+      padding: 8px 14px;
+    }
+  }
+}
 </style>
 
 <style lang="scss">
@@ -348,6 +530,21 @@ export default {
 
   &.size-large {
     grid-column: 1 / 9;
+  }
+}
+@media (max-width: $bpTabletMax) {
+  .content-element {
+    grid-column: span 8;
+  }
+}
+@media (max-width: $bpMobileMax + 100px) {
+  .social-share {
+    .icons-wrapper {
+      img {
+        width: 38px !important;
+        height: 38px !important;
+      }
+    }
   }
 }
 </style>
