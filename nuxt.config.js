@@ -1,5 +1,9 @@
 import axios from "axios";
 
+const globals = {
+  routes: [],
+};
+
 export default {
   target: "static",
   server: {
@@ -20,7 +24,8 @@ export default {
       }
       const ru = posts.map((post) => "/posts/" + post.slug);
       const kz = posts.map((post) => "/kz/posts/" + post.slug);
-      return [...ru, ...kz];
+      globals.routes = [...ru, ...kz];
+      return globals.routes;
     },
   },
   trailingSlash: true,
@@ -52,6 +57,29 @@ export default {
     "@nuxtjs/pwa",
     "nuxt-i18n",
     "@nuxtjs/style-resources",
+    "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
+  ],
+
+  sitemap: {
+    hostname: "https://1sport.kz",
+    gzip: true,
+    defaults: {
+      priority: 1,
+      lastmod: new Date(),
+    },
+  },
+
+  robots: [
+    {
+      UserAgent: "*",
+      Allow: "/",
+      Sitemap: "https://1sport.kz/sitemap.xml",
+      Host: "http://1sport.kz",
+    },
+    {
+      Host: "https://1sport.kz",
+    },
   ],
 
   axios: {

@@ -21,6 +21,8 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "@nuxtjs/robots": "^2.4.2",
+    "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.6.5",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.29.1",
