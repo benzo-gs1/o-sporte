@@ -22,16 +22,8 @@
           class="ml-16"
           @click.native="toggle"
         />
-      </nav>
-      <nav class="mobile-nav">
-        <div class="burger clickable">
-          <div class="mb-1"></div>
-          <div class="mb-1"></div>
-          <div></div>
-        </div>
-      </nav>
-      <div class="language-wrapper">
-        <!-- <nuxt-link
+        <div class="language-wrapper">
+          <!-- <nuxt-link
           :to="switchLocalePath('ru')"
           class="nav-link"
           :class="{
@@ -40,7 +32,7 @@
         >
           Рус
         </nuxt-link> -->
-        <!-- <nuxt-link
+          <!-- <nuxt-link
           :to="switchLocalePath('kz')"
           class="nav-link"
           :class="{
@@ -49,7 +41,56 @@
         >
           Каз
         </nuxt-link> -->
-      </div>
+        </div>
+      </nav>
+      <nav class="mobile-nav">
+        <div
+          class="overlay"
+          :class="{
+            overlay_active: isSearching,
+          }"
+        ></div>
+        <div class="burger clickable" @click="toggle">
+          <div class="mb-1"></div>
+          <div class="mb-1"></div>
+          <div></div>
+        </div>
+        <div
+          class="burger-menu d-flex flex-column"
+          :class="{
+            'burger-menu_active': isSearching,
+          }"
+        >
+          <div
+            class="burger-header d-flex align-center justify-between px-5 py-7"
+          >
+            <nuxt-link class="logo" :to="localePath('/')">ОСпорте</nuxt-link>
+            <icon
+              name="exit_burger"
+              alt="exit-burger-icon"
+              size="45px"
+              clickable
+              @click.native="toggle"
+            />
+          </div>
+          <mobile-searching-block></mobile-searching-block>
+          <div class="links">
+            <template v-for="item in items">
+              <nuxt-link
+                :key="item.link"
+                :to="localePath(item.link)"
+                class="nav-link"
+              >
+                <div class="d-flex align-center">
+                  <point v-if="item.live" size="9px" class="mr-1" />
+                  {{ $t(item.name) }}
+                </div>
+              </nuxt-link>
+              <hr :key="item.link + '_line'" class="hr" />
+            </template>
+          </div>
+        </div>
+      </nav>
     </div>
     <searching-block v-show="isSearching" ref="searchBlock"></searching-block>
   </header>
@@ -178,7 +219,74 @@ export default {
   .mobile-nav {
     display: block;
   }
+
+  .mobile-nav {
+    .burger-menu {
+      position: fixed;
+      height: 100vh;
+      width: 75vw;
+      top: 0;
+      left: 0;
+      background-color: $colorHeader;
+      transition: 0.2s all ease;
+      transform: translateX(150%);
+      z-index: 2;
+
+      &_active {
+        transform: translateX(34%);
+      }
+
+      .logo {
+        opacity: 0;
+        z-index: -1;
+      }
+      .links {
+        margin-top: 150px;
+
+        .nav-link {
+          font-size: 16px;
+          line-height: 19px;
+          letter-spacing: 0em;
+          margin: 18px 36px;
+          display: block;
+        }
+        .hr {
+          border: 0.5px solid white;
+        }
+      }
+    }
+    .overlay {
+      position: fixed;
+      z-index: -1;
+      background-color: rgba($color: #000000, $alpha: 0.7);
+      opacity: 0;
+      transition: 0.3s all ease-in-out;
+
+      &_active {
+        opacity: 1;
+        z-index: 1;
+      }
+    }
+  }
 }
 @media (max-width: $bpTabletMin) {
+  .mobile-nav {
+    .burger-menu {
+      width: 100vw;
+      transform: translateX(100%);
+
+      &_active {
+        transform: translateX(0%);
+      }
+
+      .logo {
+        opacity: 1;
+        z-index: 0;
+      }
+    }
+    .overlay {
+      display: none;
+    }
+  }
 }
 </style>

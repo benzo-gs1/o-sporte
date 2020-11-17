@@ -94,6 +94,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import ArticleExclusives from "@/components/article/ArticleExclsusives";
 
 export default {
@@ -135,8 +136,18 @@ export default {
   },
   mounted() {
     this.buildContent();
+    document.querySelector("#app").style.overflowY = this.$store.state
+      .isSearching
+      ? "hidden"
+      : "";
+  },
+  created() {
+    if (this.$store.state.isSearching) {
+      this.toggleSearching();
+    }
   },
   methods: {
+    ...mapMutations(["toggleSearching"]),
     buildContent() {
       const container = document.createElement("div");
       const result = this.$el;

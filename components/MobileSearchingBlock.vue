@@ -1,5 +1,11 @@
 <template>
-  <div id="searching-block">
+  <div
+    id="mobile-searching-block"
+    class="searching-block"
+    :class="{
+      'searching-block_active': isActive,
+    }"
+  >
     <div class="input-wrapper">
       <div class="content-wrapper">
         <icon
@@ -99,6 +105,9 @@ export default {
     imagelessPosts() {
       return this.posts?.filter((post) => !post.image);
     },
+    isActive() {
+      return this.query || !this.posts || this.posts.length;
+    },
   },
   watch: {
     query: "fetchPosts",
@@ -110,7 +119,6 @@ export default {
       if (this.query) {
         this.query = "";
       } else {
-        this.toggleSearching();
         this.dropPosts();
         document.querySelector("#app").style.overflowY = this.isSearching
           ? "hidden"
@@ -152,21 +160,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#searching-block {
+#mobile-searching-block {
   @extend .overlay;
 
   top: 109px;
   min-height: calc(100vh - 110px);
-  background: rgba(33, 33, 33, 0.9);
   z-index: 1;
-  overflow-y: auto;
   padding-bottom: 32px;
+}
+.searching-block {
+  pointer-events: none;
+  overflow-y: hidden;
+}
+.searching-block_active {
+  background: rgba(33, 33, 33, 0.9);
+  pointer-events: all;
+  overflow-y: auto;
 }
 .content-wrapper {
   position: relative;
 }
 .input-wrapper {
   background-color: $colorHeader;
+  pointer-events: all;
 }
 .categories {
   overflow-x: auto;
@@ -237,11 +253,6 @@ export default {
 @media (max-width: $bpDesktopMin) {
   .exit-icon {
     right: 20px;
-  }
-}
-@media (max-width: $bpTabletMax) {
-  #searching-block {
-    display: none;
   }
 }
 </style>
