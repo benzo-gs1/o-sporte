@@ -44,7 +44,7 @@
       </div>
     </div>
     <template v-if="!posts">
-      <div class="content-wrapper no-data my-8">
+      <div class="content-wrapper no-data my-8" @click="dropPosts">
         {{ $t("no-data") }}
       </div>
     </template>
@@ -120,9 +120,6 @@ export default {
         this.query = "";
       } else {
         this.dropPosts();
-        document.querySelector("#app").style.overflowY = this.isSearching
-          ? "hidden"
-          : "";
       }
     },
     search() {

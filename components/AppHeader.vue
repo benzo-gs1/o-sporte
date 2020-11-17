@@ -50,7 +50,7 @@
             overlay_active: isSearching,
           }"
         ></div>
-        <div class="burger clickable" @click="toggle">
+        <div class="burger clickable" @click="toggleMobile">
           <div class="mb-1"></div>
           <div class="mb-1"></div>
           <div></div>
@@ -64,13 +64,19 @@
           <div
             class="burger-header d-flex align-center justify-between px-5 py-7"
           >
-            <nuxt-link class="logo" :to="localePath('/')">ОСпорте</nuxt-link>
+            <nuxt-link
+              class="logo"
+              :to="localePath('/')"
+              @click.native="toggleMobile"
+            >
+              ОСпорте
+            </nuxt-link>
             <icon
               name="exit_burger"
               alt="exit-burger-icon"
               size="45px"
               clickable
-              @click.native="toggle"
+              @click.native="toggleMobile"
             />
           </div>
           <mobile-searching-block></mobile-searching-block>
@@ -150,6 +156,9 @@ export default {
       document.querySelector("#app").style.overflowY = this.isSearching
         ? "hidden"
         : "";
+    },
+    toggleMobile() {
+      this.toggleSearching();
     },
   },
 };
@@ -241,7 +250,7 @@ export default {
         z-index: -1;
       }
       .links {
-        margin-top: 150px;
+        margin-top: 130px;
 
         .nav-link {
           font-size: 16px;
@@ -261,10 +270,12 @@ export default {
       background-color: rgba($color: #000000, $alpha: 0.7);
       opacity: 0;
       transition: 0.3s all ease-in-out;
+      pointer-events: none;
 
       &_active {
         opacity: 1;
         z-index: 1;
+        pointer-events: all;
       }
     }
   }

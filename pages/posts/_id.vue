@@ -136,10 +136,6 @@ export default {
   },
   mounted() {
     this.buildContent();
-    document.querySelector("#app").style.overflowY = this.$store.state
-      .isSearching
-      ? "hidden"
-      : "";
   },
   created() {
     if (this.$store.state.isSearching) {

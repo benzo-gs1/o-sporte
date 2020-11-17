@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 * {
   margin: 0;
   padding: 0;
@@ -39,5 +39,12 @@
 
 #main {
   flex-grow: 1;
+}
+
+@media (max-width: $bpMobileMax) {
+  *::-webkit-scrollbar {
+    width: 0.3em;
+    height: 0.3em;
+  }
 }
 </style>
