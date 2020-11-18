@@ -10,6 +10,10 @@ export default {
     port: 8080,
     host: "localhost",
   },
+  pageTransition: {
+    name: "page",
+    mode: "in-out",
+  },
   generate: {
     async routes() {
       const baseUrl = `https://api.1sport.kz/wp-json/wp/v2/posts?_fields=id,slug&per_page=100`;

@@ -1,5 +1,11 @@
 <template>
-  <div id="searching-block">
+  <div
+    id="searching-block"
+    class="searching-block"
+    :class="{
+      'searching-block_active': isActive,
+    }"
+  >
     <div class="input-wrapper">
       <div class="content-wrapper">
         <icon
@@ -99,6 +105,9 @@ export default {
     imagelessPosts() {
       return this.posts?.filter((post) => !post.image);
     },
+    isActive() {
+      return this.query || !this.posts || this.posts.length;
+    },
   },
   watch: {
     query: "fetchPosts",
@@ -159,8 +168,13 @@ export default {
   min-height: calc(100vh - 110px);
   background: rgba(33, 33, 33, 0.9);
   z-index: 1;
-  overflow-y: auto;
   padding-bottom: 32px;
+}
+.searching-block {
+  overflow-y: hidden;
+}
+.searching-block_active {
+  overflow-y: auto;
 }
 .content-wrapper {
   position: relative;
