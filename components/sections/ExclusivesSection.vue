@@ -1,13 +1,20 @@
 <template>
   <article-section name="home.exclusives" class="exclusives-section">
-    <div v-if="posts.length" class="content-grid">
-      <exclusive-block
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-      ></exclusive-block>
+    <div class="content-grid">
+      <template v-if="posts.length">
+        <exclusive-block
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+        ></exclusive-block>
+      </template>
+      <template v-else>
+        <loading-exclusives-block
+          v-for="i in [1, 2, 3, 4]"
+          :key="i"
+        ></loading-exclusives-block>
+      </template>
     </div>
-    <loading-icon v-else></loading-icon>
   </article-section>
 </template>
 
