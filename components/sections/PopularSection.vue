@@ -1,14 +1,22 @@
 <template>
   <article-section name="home.popular">
-    <div v-if="posts.length" class="content-grid">
-      <popular-block
-        v-for="(area, index) in areas"
-        :key="area"
-        :post="posts[index]"
-        :area="area"
-      ></popular-block>
+    <div class="content-grid">
+      <template v-if="posts.length">
+        <popular-block
+          v-for="(area, index) in areas"
+          :key="area"
+          :post="posts[index]"
+          :area="area"
+        ></popular-block>
+      </template>
+      <template v-else>
+        <loading-popular-block
+          v-for="area in areas"
+          :key="area"
+          :area="area"
+        ></loading-popular-block>
+      </template>
     </div>
-    <loading-icon v-else></loading-icon>
   </article-section>
 </template>
 

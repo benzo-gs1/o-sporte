@@ -1,6 +1,7 @@
 <template>
   <article class="exclusive-block d-flex flex-column pa-7">
     <category-link
+      class="category"
       :category-id="post.category.id"
       :name="$t('categories.' + post.category.slug)"
     ></category-link>
@@ -54,6 +55,9 @@ export default {
     z-index: 0;
     background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
   }
+}
+.category {
+  align-self: flex-start;
 }
 
 .h6 {

@@ -1,28 +1,21 @@
 <template>
-  <article class="popular-block d-flex flex-column pa-7" :style="styles">
-    <category-link
-      class="mb-2 category"
-      :category-id="post.category.id"
-      :name="$t('categories.' + post.category.slug)"
-    ></category-link>
-    <header-4 :class="header" :title="post.title" :link="post.slug"></header-4>
-    <date-block class="date sub-header mt-4" :date="post.date"></date-block>
-    <post-link class="image overlay" :link="post.slug">
-      <img :src="post.image.link" :alt="post.image.alt" />
-    </post-link>
-  </article>
+  <div class="popular-block d-flex flex-column pa-7" :style="styles">
+    <div class="category mb-2">loremip</div>
+    <div :class="header">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum, velit.
+      Lorem, ipsum. Lorem, ipsum.
+    </div>
+    <div class="date sub-header mt-4">2020 01 01</div>
+    <div class="image overlay"></div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "PopularBlock",
+  name: "LoadingPopularBlock",
   props: {
     area: {
       type: String,
-      required: true,
-    },
-    post: {
-      type: Object,
       required: true,
     },
   },
@@ -52,19 +45,23 @@ export default {
     &::after {
       @extend .overlay;
       z-index: 0;
-      background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
+      background-color: $colorLightGray;
     }
   }
 }
+
 .h4,
-.h6 {
-  text-decoration: none;
-  color: $colorWhite;
+.h6,
+.date,
+.category {
   z-index: 1;
+  background-color: white;
+  color: transparent;
+  border-radius: 3px;
+
+  @extend .loader;
 }
-.date {
-  color: $colorLightGray;
-}
+.date,
 .category {
   align-self: flex-start;
 }
