@@ -10,11 +10,7 @@ export default {
     port: 8080,
     host: "localhost",
   },
-  router: {
-    scrollBehavior() {
-      return { x: 0, y: 0 };
-    },
-  },
+  router: {},
   generate: {
     async routes() {
       const baseUrl = `https://api.1sport.kz/wp-json/wp/v2/posts?_fields=id,slug&per_page=100`;
@@ -50,7 +46,7 @@ export default {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 
-  css: ["~/assets/main.scss", "~/assets/fonts.css"],
+  css: ["~/assets/main.scss", "~/assets/fonts/fonts.css"],
 
   plugins: ["~/plugins/moment.js"],
 

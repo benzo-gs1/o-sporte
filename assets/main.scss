@@ -165,33 +165,28 @@ $bpMobileMin: 320px;
 }
 
 .h2 {
-  font-family: Proxima Nova, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
   line-height: 37px;
 }
 .h3 {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: 600;
   font-size: 48px;
   line-height: 58px;
 }
 .h4 {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 44px;
 }
 .h5 {
-  font-family: Proxima Nova;
   font-size: 24px;
   line-height: 28px;
 }
 .h6 {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -199,7 +194,6 @@ $bpMobileMin: 320px;
 }
 
 .title {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: bold;
   font-size: 60px;
@@ -207,7 +201,6 @@ $bpMobileMin: 320px;
 }
 
 .sub-header {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -215,7 +208,6 @@ $bpMobileMin: 320px;
 }
 
 .paragraph {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -223,7 +215,6 @@ $bpMobileMin: 320px;
 }
 
 .tag_small {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
@@ -232,7 +223,6 @@ $bpMobileMin: 320px;
 }
 
 .header_live {
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -279,7 +269,6 @@ $bpMobileMin: 320px;
 }
 
 .date {
-  font-family: Proxima Nova;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -301,14 +290,12 @@ $bpMobileMin: 320px;
 }
 @media (max-width: $bpTabletMax) {
   .h5 {
-    font-family: Proxima Nova;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
   }
   .title {
-    font-family: Proxima Nova;
     font-style: normal;
     font-weight: bold;
     font-size: 48px;

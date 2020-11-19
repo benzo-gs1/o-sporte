@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Italic.eot");
+  src: local("SeroPro-Italic"),
+    url("SeroPro-Italic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Italic.woff2") format("woff2"),
+    url("SeroPro-Italic.woff") format("woff"),
+    url("SeroPro-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Black.eot");
+  src: local("SeroPro-Black"),
+    url("SeroPro-Black.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Black.woff2") format("woff2"),
+    url("SeroPro-Black.woff") format("woff"),
+    url("SeroPro-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-BlackItalic.eot");
+  src: local("SeroPro-BlackItalic"),
+    url("SeroPro-BlackItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-BlackItalic.woff2") format("woff2"),
+    url("SeroPro-BlackItalic.woff") format("woff"),
+    url("SeroPro-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Bold.eot");
+  src: local("SeroPro-Bold"),
+    url("SeroPro-Bold.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Bold.woff2") format("woff2"),
+    url("SeroPro-Bold.woff") format("woff"),
+    url("SeroPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Medium.eot");
+  src: local("SeroPro-Medium"),
+    url("SeroPro-Medium.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Medium.woff2") format("woff2"),
+    url("SeroPro-Medium.woff") format("woff"),
+    url("SeroPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-BoldItalic.eot");
+  src: local("SeroPro-BoldItalic"),
+    url("SeroPro-BoldItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-BoldItalic.woff2") format("woff2"),
+    url("SeroPro-BoldItalic.woff") format("woff"),
+    url("SeroPro-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Light.eot");
+  src: local("SeroPro-Light"),
+    url("SeroPro-Light.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Light.woff2") format("woff2"),
+    url("SeroPro-Light.woff") format("woff"),
+    url("SeroPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro.eot");
+  src: local("SeroPro"), url("SeroPro.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro.woff2") format("woff2"), url("SeroPro.woff") format("woff"),
+    url("SeroPro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-ThinItalic.eot");
+  src: local("SeroPro-ThinItalic"),
+    url("SeroPro-ThinItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-ThinItalic.woff2") format("woff2"),
+    url("SeroPro-ThinItalic.woff") format("woff"),
+    url("SeroPro-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-MediumItalic.eot");
+  src: local("SeroPro-MediumItalic"),
+    url("SeroPro-MediumItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-MediumItalic.woff2") format("woff2"),
+    url("SeroPro-MediumItalic.woff") format("woff"),
+    url("SeroPro-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-LightItalic.eot");
+  src: local("SeroPro-LightItalic"),
+    url("SeroPro-LightItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-LightItalic.woff2") format("woff2"),
+    url("SeroPro-LightItalic.woff") format("woff"),
+    url("SeroPro-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Extralight.eot");
+  src: local("SeroPro-Extralight"),
+    url("SeroPro-Extralight.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Extralight.woff2") format("woff2"),
+    url("SeroPro-Extralight.woff") format("woff"),
+    url("SeroPro-Extralight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-ExtralightItalic.eot");
+  src: local("SeroPro-ExtralightItalic"),
+    url("SeroPro-ExtralightItalic.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-ExtralightItalic.woff2") format("woff2"),
+    url("SeroPro-ExtralightItalic.woff") format("woff"),
+    url("SeroPro-ExtralightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SeroPro";
+  src: url("SeroPro-Thin.eot");
+  src: local("SeroPro-Thin"),
+    url("SeroPro-Thin.eot?#iefix") format("embedded-opentype"),
+    url("SeroPro-Thin.woff2") format("woff2"),
+    url("SeroPro-Thin.woff") format("woff"),
+    url("SeroPro-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}

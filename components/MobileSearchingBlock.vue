@@ -207,7 +207,6 @@ export default {
   padding: 14px 40px;
   width: 100%;
 
-  font-family: Proxima Nova;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -215,7 +214,6 @@ export default {
 }
 
 .category {
-  font-family: Proxima Nova;
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
@@ -229,7 +227,6 @@ export default {
 }
 
 .no-data {
-  font-family: Proxima Nova;
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;

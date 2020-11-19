@@ -78,7 +78,7 @@
         </div>
       </div>
     </article>
-    <section class="comments">
+    <section v-if="post.comment_status === 'open'" class="comments">
       <p class="comments-title mb-6">0 комментариев</p>
       <hr class="comments-separator" />
       <p class="comments-title mt-6 mb-4">Добавить комментарий</p>
@@ -224,7 +224,6 @@ export default {
   margin-bottom: -100px;
 }
 .title {
-  font-family: Proxima Nova;
   font-size: 60px;
   font-weight: 700;
   line-height: 86px;
@@ -240,7 +239,6 @@ export default {
   flex-wrap: wrap;
 }
 .tag {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;
@@ -281,7 +279,6 @@ export default {
   grid-column: 3 / 6;
 
   .section-link {
-    font-family: Proxima Nova;
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
@@ -293,7 +290,6 @@ export default {
   grid-row: span 10;
 }
 .description {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-weight: 600;
   line-height: 23px;
@@ -309,7 +305,6 @@ export default {
   grid-column: 3 / 7;
   .author-text-wrapper {
     .author-title {
-      font-family: Proxima Nova;
       font-size: 14px;
       font-weight: 400;
       line-height: 17px;
@@ -318,7 +313,6 @@ export default {
       color: $colorGray;
     }
     .author-name {
-      font-family: Proxima Nova;
       font-size: 20px;
       font-weight: 600;
       line-height: 24px;
@@ -329,7 +323,6 @@ export default {
 .comments {
   grid-column: span 8;
   &-title {
-    font-family: Proxima Nova;
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
@@ -346,7 +339,6 @@ export default {
   padding: 10px;
 
   .social-share-title {
-    font-family: Proxima Nova;
     font-size: 24px;
     font-weight: 700;
     line-height: 29px;
@@ -359,7 +351,6 @@ export default {
 .email {
   background-color: black;
   &-title {
-    font-family: Proxima Nova;
     font-size: 36px;
     font-weight: 700;
     line-height: 44px;
@@ -372,12 +363,11 @@ export default {
   }
   &-input {
     flex: 1;
-    font-family: Proxima Nova;
+
     font-size: 24px;
     padding: 26px 36px;
   }
   &-button {
-    font-family: Proxima Nova;
     font-size: 36px;
     font-weight: 600;
 
@@ -389,7 +379,7 @@ export default {
   }
   &-agreement {
     color: white;
-    font-family: Proxima Nova;
+
     font-size: 14px;
     font-weight: 600;
     width: 70%;
@@ -558,14 +548,12 @@ export default {
   padding-right: 10px;
 }
 .content-header {
-  font-family: Proxima Nova;
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;
   letter-spacing: 0em;
 }
 .content-paragraph {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-weight: 400;
   line-height: 23px;

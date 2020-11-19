@@ -64,22 +64,18 @@ export default {
   color: $colorGray;
 }
 .description {
-  font-family: Proxima Nova;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
-  text-align: left;
 }
 .time {
-  font-family: Proxima Nova;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
-  text-align: left;
   color: $colorGray;
 }
 @media (max-width: $bpTabletMin) {

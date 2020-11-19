@@ -15,6 +15,7 @@
   border: none;
   box-sizing: border-box;
   outline: none;
+  font-family: "SeroPro";
 }
 
 *::-webkit-scrollbar {

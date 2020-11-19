@@ -89,7 +89,6 @@ export default {
 
 <style lang="scss" scoped>
 .block {
-  font-family: Proxima Nova;
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;

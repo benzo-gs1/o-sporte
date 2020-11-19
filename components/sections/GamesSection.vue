@@ -136,13 +136,11 @@ export default {
 }
 .action {
   transition: 0.3s all ease;
-  font-family: Proxima Nova;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
-  text-align: left;
   background-color: transparent;
 
   &_active {

@@ -38,23 +38,19 @@ export default {
   height: 60px;
 }
 .time {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 19px;
   letter-spacing: 0em;
-  text-align: left;
   color: $colorBlue;
 }
 .title {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
-  text-align: left;
 }
 .summary {
   padding-top: 1px;

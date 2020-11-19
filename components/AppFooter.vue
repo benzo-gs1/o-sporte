@@ -135,13 +135,11 @@ export default {
   background-color: black;
 }
 .nav-title {
-  font-family: Proxima Nova;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 29px;
   letter-spacing: 0em;
-  text-align: left;
   color: $colorWhite;
 }
 
@@ -149,17 +147,14 @@ export default {
   text-decoration: none;
   color: $colorWhite;
 
-  font-family: Proxima Nova;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
   letter-spacing: 0em;
-  text-align: left;
 }
 
 .logo {
-  font-family: Proxima Nova;
   font-size: 48px;
   font-style: italic;
   font-weight: 700;
@@ -170,18 +165,15 @@ export default {
   color: $colorWhite;
 }
 .copyright {
-  font-family: Proxima Nova;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 22px;
   letter-spacing: 0em;
-  text-align: left;
 
   color: $colorWhite;
 }
 .social-title {
-  font-family: Proxima Nova;
   font-size: 24px;
   font-style: normal;
   font-weight: 400;

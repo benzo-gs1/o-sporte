@@ -38,7 +38,6 @@ export default {
   height: 110px;
 }
 .news-title {
-  font-family: Proxima Nova;
   font-size: 16px;
   font-weight: 600;
   line-height: 19px;

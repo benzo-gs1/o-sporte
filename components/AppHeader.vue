@@ -173,7 +173,6 @@ export default {
 }
 
 .logo {
-  font-family: Proxima Nova;
   font-style: italic;
   font-weight: 700;
   font-size: 48px;
@@ -213,7 +212,6 @@ export default {
   text-decoration: none;
   color: $colorWhite;
 
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
