@@ -54,11 +54,6 @@ export default {
 .h6,
 .date,
 .category {
-  z-index: 1;
-  background-color: white;
-  color: transparent;
-  border-radius: 3px;
-
   @extend .loader;
 }
 .date,

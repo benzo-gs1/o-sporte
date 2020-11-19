@@ -1,19 +1,31 @@
 <template>
   <article-section name="home.news">
-    <div v-if="posts.length" class="content-grid">
-      <imageless-news-block
-        v-for="post in imageless"
-        :key="post.id"
-        :post="post"
-      ></imageless-news-block>
-      <hr class="hr" />
-      <image-news-block
-        v-for="post in withImage"
-        :key="post.id"
-        :post="post"
-      ></image-news-block>
+    <div class="content-grid">
+      <template v-if="posts.length">
+        <imageless-news-block
+          v-for="post in imageless"
+          :key="post.id"
+          :post="post"
+        ></imageless-news-block>
+        <hr class="hr" />
+        <image-news-block
+          v-for="post in withImage"
+          :key="post.id"
+          :post="post"
+        ></image-news-block>
+      </template>
+      <template v-else>
+        <loading-imageless-news-block
+          v-for="i in [1, 2, 3, 4]"
+          :key="i + '-imageless'"
+        ></loading-imageless-news-block>
+        <hr class="hr" />
+        <loading-image-news-block
+          v-for="i in [1, 2, 3, 4]"
+          :key="i + '-image'"
+        ></loading-image-news-block>
+      </template>
     </div>
-    <loading-icon v-else></loading-icon>
   </article-section>
 </template>
 

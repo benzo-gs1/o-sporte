@@ -282,6 +282,10 @@ $bpMobileMin: 320px;
 .loader {
   position: relative;
   overflow: hidden;
+  color: transparent;
+  background-color: white;
+  z-index: 1;
+  border-radius: 3px;
   &::after {
     content: "";
     display: block;
