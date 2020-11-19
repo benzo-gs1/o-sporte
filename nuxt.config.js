@@ -10,9 +10,10 @@ export default {
     port: 8080,
     host: "localhost",
   },
-  pageTransition: {
-    name: "page",
-    mode: "in-out",
+  router: {
+    scrollBehavior() {
+      return { x: 0, y: 0 };
+    },
   },
   generate: {
     async routes() {

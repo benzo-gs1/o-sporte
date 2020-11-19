@@ -78,6 +78,23 @@ export default {
         (item) => item.image && !this.firstBlock.includes(item)
       );
     },
+    isCategory() {
+      const { category } = this.$route.query;
+      return Boolean(category);
+    },
+    pageTitle() {
+      if (this.loading || this.total) {
+        if (this.isCategory) {
+          return "Поиск по категории";
+        }
+        return this.$t("search-page.meta-title", {
+          title: this.title,
+          page: this.page,
+        });
+      }
+
+      return this.$t("no-data");
+    },
   },
   created() {
     if (this.$store.state.isSearching) this.toggleSearching();
@@ -128,13 +145,7 @@ export default {
   },
   head() {
     return {
-      title:
-        this.loading || this.total
-          ? this.$t("search-page.meta-title", {
-              title: this.title,
-              page: this.page,
-            })
-          : this.$t("no-data"),
+      title: this.pageTitle,
       meta: [
         {
           hid: "description",

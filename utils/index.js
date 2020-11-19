@@ -72,5 +72,6 @@ export function parsePostArticle(post) {
       id: tag.id,
       name: tag.name,
     })),
+    comment_status: post.comment_status,
   };
 }

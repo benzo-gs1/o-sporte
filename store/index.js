@@ -68,7 +68,7 @@ export const actions = {
   },
   async fetchPost(_, slug) {
     const { data } = await this.$axios.get(
-      `/posts?_fields=id,date,slug,title,content,excerpt,_embedded,_links,acf&_embed=wp:term, wp:featuredmedia&slug=${slug}`
+      `/posts?_fields=id,date,slug,title,content,excerpt,_embedded,_links,acf,comment_status&_embed=wp:term, wp:featuredmedia&slug=${slug}`
     );
     const post = data[0];
     if (post) return parsePostArticle(post);

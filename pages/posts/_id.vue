@@ -1,75 +1,83 @@
 <template>
-  <article class="article content-grid content-wrapper mt-16">
-    <div class="title-image">
-      <img v-if="post.image" :src="post.image.link" :alt="post.image.alt" />
-    </div>
-    <h1 class="title">
-      <div class="tags d-flex">
-        <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
-          {{ tag.name }}
+  <div class="content-wrapper">
+    <article class="article content-grid mt-16">
+      <div class="title-image">
+        <img v-if="post.image" :src="post.image.link" :alt="post.image.alt" />
+      </div>
+      <h1 class="title">
+        <div class="tags d-flex">
+          <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
+            {{ tag.name }}
+          </div>
         </div>
+        <span>{{ post.title }}</span>
+      </h1>
+      <div class="time-wrapper">
+        <date-block class="date" :date="post.date"></date-block>
       </div>
-      <span>{{ post.title }}</span>
-    </h1>
-    <div class="time-wrapper">
-      <date-block class="date" :date="post.date"></date-block>
-    </div>
-    <div class="desktop-social-wrapper d-flex flex-column">
-      <icon
-        v-for="icon in socials"
-        :key="icon.name"
-        :name="icon.name"
-        :alt="icon.name + '-social-icon'"
-        size="30px"
-        clickable
-        :link="icon.link"
-        class="mb-3"
-      />
-    </div>
-    <div class="table-of-contents">
-      <div class="contents-header-wrapper d-flex justify-between align-center">
-        <h5 class="h5">Содержание статьи</h5>
-        <span class="clickable" @click="sectionShow = !sectionShow">
-          скрыть
-        </span>
-      </div>
-      <ul v-if="sectionShow" class="sections">
-        <li v-for="(section, index) in sections" :key="index" class="mb-4">
-          <a class="section-link" :href="section.link">{{ section.name }}</a>
-        </li>
-      </ul>
-    </div>
-    <client-only>
-      <article-exclusives class="exclusives"></article-exclusives>
-      <p class="description" v-html="post.excerpt"></p>
-    </client-only>
-    <!-- content -->
-    <div class="last-element tags tags_article d-flex">
-      <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
-        {{ tag.name }}
-      </div>
-    </div>
-    <div class="author-card mt-14 d-flex">
-      <icon class="mr-7" name="avatar" alt="author-icon" size="126px" />
-      <div class="author-text-wrapper d-flex flex-column">
-        <span class="author-title my-3">Автор</span>
-        <span class="author-name">{{ post.author }}</span>
-      </div>
-    </div>
-    <div class="social-share mt-15 mb-8">
-      <h5 class="social-share-title mb-5">Поделится</h5>
-      <div class="icons-wrapper d-flex mb-5">
+      <div class="desktop-social-wrapper d-flex flex-column">
         <icon
           v-for="icon in socials"
           :key="icon.name"
           :name="icon.name"
           :alt="icon.name + '-social-icon'"
-          size="50px"
+          size="30px"
           clickable
           :link="icon.link"
+          class="mb-3"
         />
       </div>
-    </div>
+      <div class="table-of-contents">
+        <div
+          class="contents-header-wrapper d-flex justify-between align-center"
+        >
+          <h5 class="h5">Содержание статьи</h5>
+          <span class="clickable" @click="sectionShow = !sectionShow">
+            скрыть
+          </span>
+        </div>
+        <ul v-if="sectionShow && sections.length" class="sections">
+          <li v-for="(section, index) in sections" :key="index" class="mb-4">
+            <a class="section-link" :href="section.link">{{ section.name }}</a>
+          </li>
+        </ul>
+      </div>
+      <client-only>
+        <article-exclusives class="exclusives"></article-exclusives>
+        <p
+          v-if="!post.excerpt.includes('[&hellip;]')"
+          class="description"
+          v-html="post.excerpt"
+        ></p>
+      </client-only>
+      <!-- content -->
+      <div class="last-element tags tags_article d-flex">
+        <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
+          {{ tag.name }}
+        </div>
+      </div>
+      <div class="author-card mt-14 d-flex">
+        <icon class="mr-7" name="avatar" alt="author-icon" size="126px" />
+        <div class="author-text-wrapper d-flex flex-column">
+          <span class="author-title my-3">Автор</span>
+          <span class="author-name">{{ post.author }}</span>
+        </div>
+      </div>
+      <div class="social-share mt-15 mb-8">
+        <h5 class="social-share-title mb-5">Поделится</h5>
+        <div class="icons-wrapper d-flex mb-5">
+          <icon
+            v-for="icon in socials"
+            :key="icon.name"
+            :name="icon.name"
+            :alt="icon.name + '-social-icon'"
+            size="50px"
+            clickable
+            :link="icon.link"
+          />
+        </div>
+      </div>
+    </article>
     <section class="comments">
       <p class="comments-title mb-6">0 комментариев</p>
       <hr class="comments-separator" />
@@ -89,8 +97,7 @@
         Пользовательское соглашение
       </p>
     </section>
-    <div class="spacer"></div>
-  </article>
+  </div>
 </template>
 
 <script>
@@ -145,6 +152,7 @@ export default {
   },
   mounted() {
     this.buildContent();
+    document.querySelector("#app").scrollTop = 0;
   },
   created() {
     if (this.$store.state.isSearching) {
@@ -159,8 +167,8 @@ export default {
     ...mapMutations(["toggleSearching"]),
     buildContent() {
       const container = document.createElement("div");
-      const result = this.$el;
-      const endNode = result.querySelector(".last-element");
+      const article = this.$el.querySelector(".article");
+      const endNode = article.querySelector(".last-element");
       container.innerHTML = this.post.content;
 
       container.childNodes.forEach((node) => {
@@ -174,7 +182,7 @@ export default {
         }
 
         node.classList.add("content-element");
-        result.insertBefore(node, endNode);
+        article.insertBefore(node, endNode);
       });
     },
   },
@@ -201,6 +209,7 @@ export default {
 <style lang="scss" scoped>
 .article {
   gap: 15px;
+  height: auto;
 }
 .title-image {
   grid-column: span 8;
@@ -250,6 +259,15 @@ export default {
 }
 .desktop-social-wrapper {
   grid-column: 2 / 3;
+  z-index: -1;
+
+  @supports (position: sticky) {
+    position: sticky;
+    top: 50px;
+  }
+}
+.description {
+  background-color: white;
 }
 .table-of-contents {
   .contents-header-wrapper,
@@ -339,7 +357,6 @@ export default {
   }
 }
 .email {
-  grid-column: span 8;
   background-color: black;
   &-title {
     font-family: Proxima Nova;
