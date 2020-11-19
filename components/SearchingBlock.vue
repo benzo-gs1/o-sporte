@@ -50,18 +50,26 @@
     </template>
     <template v-else>
       <div class="search-items content-wrapper content-grid my-8">
-        <image-search-block
-          v-for="post in imagePosts"
-          :key="post.id"
-          :post="post"
-        >
-        </image-search-block>
-        <imageless-search-block
-          v-for="post in imagelessPosts"
-          :key="post.id"
-          :post="post"
-        >
-        </imageless-search-block>
+        <template v-if="!loading">
+          <image-search-block
+            v-for="post in imagePosts"
+            :key="post.id"
+            :post="post"
+          >
+          </image-search-block>
+          <imageless-search-block
+            v-for="post in imagelessPosts"
+            :key="post.id"
+            :post="post"
+          >
+          </imageless-search-block>
+        </template>
+        <template v-else>
+          <loading-image-search-block
+            v-for="i in [1, 2, 3, 4]"
+            :key="i"
+          ></loading-image-search-block>
+        </template>
         <div class="spacer"></div>
       </div>
     </template>
@@ -83,6 +91,7 @@ export default {
       query: "",
       categories: [],
       posts: [],
+      loading: false,
     };
   },
   computed: {
@@ -145,12 +154,14 @@ export default {
       };
     },
     fetchPosts: debounce(async function () {
-      if (this.query.length <= 2) return;
+      if (this.query.length <= 1) return;
+      this.loading = true;
       const { data, total } = await this.searchPosts({
         query: this.query,
         page: 1,
       });
       this.posts = total ? data : false;
+      this.loading = false;
     }, 600),
     dropPosts() {
       this.posts = [];

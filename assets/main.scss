@@ -134,6 +134,15 @@ $bpMobileMin: 320px;
   opacity: 0;
 }
 
+.search-enter-active,
+.search-leave-active {
+  transition: opacity 0.3s;
+}
+.search-enter,
+.search-leave-to {
+  opacity: 0;
+}
+
 .clickable {
   cursor: pointer;
 }

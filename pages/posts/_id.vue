@@ -153,6 +153,9 @@ export default {
   mounted() {
     this.buildContent();
     document.querySelector("#app").scrollTop = 0;
+    document.querySelector("#app").style.overflowY = this.isSearching
+      ? "hidden"
+      : "";
   },
   created() {
     if (this.$store.state.isSearching) {

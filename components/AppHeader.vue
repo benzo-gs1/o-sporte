@@ -98,7 +98,9 @@
         </div>
       </nav>
     </div>
-    <searching-block v-show="isSearching" ref="searchBlock"></searching-block>
+    <transition name="search">
+      <searching-block v-show="isSearching" ref="searchBlock"></searching-block>
+    </transition>
   </header>
 </template>
 
