@@ -176,7 +176,7 @@ export default {
   @extend .overlay;
 
   top: 109px;
-  min-height: calc(100vh - 110px);
+  min-height: calc(101vh - 110px);
   background: rgba(33, 33, 33, 0.9);
   z-index: 1;
   padding-bottom: 32px;
