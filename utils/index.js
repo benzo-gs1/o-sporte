@@ -1,5 +1,5 @@
 export function getTitleImage(featuredMedia, size) {
-  if (!featuredMedia) return;
+  if (!featuredMedia || !featuredMedia[0].media_details) return;
   const sizes = featuredMedia[0].media_details.sizes;
   if (size in sizes) {
     return sizes[size].source_url;
