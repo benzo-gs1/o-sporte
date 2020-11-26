@@ -6,7 +6,7 @@
       'searching-block_active': isActive,
     }"
   >
-    <div class="input-wrapper">
+    <div class="input-wrapper mt-2">
       <div class="content-wrapper">
         <icon
           class="search-icon"
@@ -160,8 +160,8 @@ export default {
 #mobile-searching-block {
   @extend .overlay;
 
-  top: 109px;
-  min-height: calc(100vh - 110px);
+  top: 74px;
+  min-height: calc(100vh - 75px);
   z-index: 1;
   padding-bottom: 32px;
 }

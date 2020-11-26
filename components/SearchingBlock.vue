@@ -175,8 +175,8 @@ export default {
 #searching-block {
   @extend .overlay;
 
-  top: 109px;
-  min-height: calc(101vh - 110px);
+  top: 74px;
+  min-height: calc(101vh - 75px);
   background: rgba(33, 33, 33, 0.9);
   z-index: 1;
   padding-bottom: 32px;

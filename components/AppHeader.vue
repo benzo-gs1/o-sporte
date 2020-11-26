@@ -62,7 +62,7 @@
           }"
         >
           <div
-            class="burger-header d-flex align-center justify-between px-5 py-7"
+            class="burger-header d-flex align-center justify-between px-5 py-2"
           >
             <nuxt-link
               class="logo"
@@ -168,7 +168,7 @@ export default {
 
 <style lang="scss" scoped>
 #app-header {
-  height: 110px;
+  height: 75px;
   background-color: $colorHeader;
   z-index: 2;
   position: relative;
