@@ -15,19 +15,21 @@
       <div class="time-wrapper">
         <date-block class="date" :date="post.date"></date-block>
       </div>
-      <div class="desktop-social-wrapper d-flex flex-column">
-        <icon
-          v-for="icon in socials"
-          :key="icon.name"
-          :name="icon.name"
-          :alt="icon.name + '-social-icon'"
-          size="30px"
-          clickable
-          :link="icon.link"
-          class="mb-3"
-        />
+      <div class="desktop-social-wrapper">
+        <div class="inner-wrapper d-flex flex-column">
+          <icon
+            v-for="icon in socials"
+            :key="icon.name"
+            :name="icon.name"
+            :alt="icon.name + '-social-icon'"
+            size="30px"
+            clickable
+            :link="icon.link"
+            class="mb-3"
+          />
+        </div>
       </div>
-      <div class="table-of-contents">
+      <div v-if="sections.length" class="table-of-contents">
         <div
           class="contents-header-wrapper d-flex justify-between align-center"
         >
@@ -43,11 +45,10 @@
         </ul>
       </div>
       <client-only>
-        <article-exclusives class="exclusives"></article-exclusives>
         <p
           v-if="!post.excerpt.includes('[&hellip;]')"
-          class="description"
-          v-html="post.excerpt"
+          class="description content-header"
+          v-html="description"
         ></p>
       </client-only>
       <!-- content -->
@@ -77,16 +78,8 @@
           />
         </div>
       </div>
+      <article-exclusives class="exclusives"></article-exclusives>
     </article>
-    <section v-if="post.comment_status === 'open'" class="comments">
-      <p class="comments-title mb-6">0 комментариев</p>
-      <hr class="comments-separator" />
-      <p class="comments-title mt-6 mb-4">Добавить комментарий</p>
-      <hr class="comments-separator" />
-      <p class="comments-title mt-8">
-        Для отправки комментария вам необходимо авторизоваться.
-      </p>
-    </section>
     <section class="email mt-14 pa-6 d-flex flex-column align-center">
       <h4 class="email-title mb-14">Хочешь получить рассылку?</h4>
       <div class="input-wrapper d-flex">
@@ -148,6 +141,11 @@ export default {
     },
     keywords() {
       return [...this.tags, ...this.categories].join(",").toLowerCase();
+    },
+    description() {
+      const container = document.createElement("div");
+      container.innerHTML = this.post.excerpt;
+      return container.querySelector("p").innerHTML;
     },
   },
   mounted() {
@@ -260,15 +258,13 @@ export default {
 }
 .desktop-social-wrapper {
   grid-column: 2 / 3;
+  grid-row: 4 / 8;
   z-index: -1;
 
   @supports (position: sticky) {
     position: sticky;
     top: 50px;
   }
-}
-.description {
-  background-color: white;
 }
 .table-of-contents {
   .contents-header-wrapper,
@@ -290,15 +286,10 @@ export default {
 }
 .exclusives {
   grid-column: 7 / 9;
-  grid-row: span 10;
+  grid-row: 4 / 15;
 }
 .description {
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 23px;
-  letter-spacing: 0em;
-
-  grid-column: 2 / 6;
+  grid-column: 3 / 7;
 }
 .tags_article {
   grid-column: 3 / 7;
@@ -321,18 +312,6 @@ export default {
       line-height: 24px;
       letter-spacing: 0em;
     }
-  }
-}
-.comments {
-  grid-column: span 8;
-  &-title {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29px;
-    letter-spacing: 0em;
-  }
-  &-separator {
-    border: 4px solid black;
   }
 }
 .social-share {
@@ -492,15 +471,6 @@ export default {
     }
     .icons-wrapper {
       margin-top: 20px;
-    }
-  }
-  .comments {
-    &-title {
-      font-size: 18px;
-      line-height: 22px;
-    }
-    &-separator {
-      border: 2px solid black;
     }
   }
 

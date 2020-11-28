@@ -52,7 +52,7 @@
       </div>
       <div class="social-wrapper">
         <!-- <div class="adds adds-placeholder" style="height: 80px"></div> -->
-        <p class="social-title mt-2">
+        <p v-if="icons.length" class="social-title mt-2">
           {{ $t("footer.social") }}
         </p>
         <div class="icons-wrapper d-flex">
@@ -103,7 +103,7 @@ export default {
           },
           {
             name: "links.interview",
-            link: "/search?category=16&page=1",
+            link: "/search?category=1&page=1",
           },
           {
             name: "links.forecasts",
@@ -117,11 +117,11 @@ export default {
         ],
       },
       icons: [
-        { name: "facebook", link: "#" },
-        { name: "vk", link: "#" },
-        { name: "instagram", link: "#" },
-        { name: "twitter", link: "#" },
-        { name: "telegram", link: "#" },
+        // { name: "facebook", link: "#" },
+        // { name: "vk", link: "#" },
+        // { name: "instagram", link: "#" },
+        // { name: "twitter", link: "#" },
+        // { name: "telegram", link: "#" },
       ],
     };
   },
@@ -134,6 +134,12 @@ export default {
   height: 350px;
   background-color: black;
 }
+.content-wrapper {
+  & > * {
+    flex: 1;
+  }
+}
+
 .nav-title {
   font-size: 24px;
   font-style: normal;

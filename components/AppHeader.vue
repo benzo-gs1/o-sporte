@@ -130,7 +130,7 @@ export default {
         },
         {
           name: "links.interview",
-          link: "/search?category=16&page=1",
+          link: "/search?category=1&page=1",
         },
         {
           name: "links.cybersport",
@@ -250,7 +250,7 @@ export default {
         z-index: -1;
       }
       .links {
-        margin-top: 130px;
+        margin-top: 140px;
 
         .nav-link {
           font-size: 16px;
