@@ -1,15 +1,22 @@
 <template>
   <aside>
     <h3 class="exclusives-title">Эксклюзив</h3>
-    <div v-if="posts.length" class="mt-8 d-flex flex-column">
-      <article-exclusive
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-        class="mb-5"
-      ></article-exclusive>
+    <div class="mt-8 d-flex flex-column">
+      <template v-if="posts.length">
+        <article-exclusive
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+          class="mb-5"
+        ></article-exclusive>
+      </template>
+      <template v-else>
+        <loading-article-exclusive
+          v-for="i in [1, 2, 3, 4]"
+          :key="i"
+        ></loading-article-exclusive>
+      </template>
     </div>
-    <loading-icon v-else></loading-icon>
   </aside>
 </template>
 

@@ -22,7 +22,7 @@ export default {
 .news-block {
   grid-column: span 4;
   min-height: 110px;
-  background-color: $colorLightGray;
+  background-color: $colorLoader;
 }
 
 .news-title,

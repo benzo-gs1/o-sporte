@@ -30,7 +30,7 @@ export default {
 .news-block {
   grid-column: span 4;
   min-height: 260px;
-  background-color: $colorLightGray;
+  background-color: $colorLoader;
 }
 .text-wrapper {
   flex: 1;

@@ -44,13 +44,10 @@
           </li>
         </ul>
       </div>
-      <client-only>
-        <p
-          v-if="!post.excerpt.includes('[&hellip;]')"
-          class="description content-header"
-          v-html="description"
-        ></p>
-      </client-only>
+      <p
+        v-if="!post.excerpt.includes('[&hellip;]')"
+        class="description content-header"
+      ></p>
       <!-- content -->
       <div class="last-element tags tags_article d-flex">
         <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
@@ -142,13 +139,9 @@ export default {
     keywords() {
       return [...this.tags, ...this.categories].join(",").toLowerCase();
     },
-    description() {
-      const container = document.createElement("div");
-      container.innerHTML = this.post.excerpt;
-      return container.querySelector("p").innerHTML;
-    },
   },
   mounted() {
+    this.buildDescription();
     this.buildContent();
     document.querySelector("#app").scrollTop = 0;
   },
@@ -182,6 +175,12 @@ export default {
         node.classList.add("content-element");
         article.insertBefore(node, endNode);
       });
+    },
+    buildDescription() {
+      const description = this.$el.querySelector(".description");
+      const container = document.createElement("div");
+      container.innerHTML = this.post.excerpt;
+      description.innerHTML = container.querySelector("p").innerHTML;
     },
   },
   head() {

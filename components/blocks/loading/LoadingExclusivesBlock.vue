@@ -39,7 +39,7 @@ export default {
   &::after {
     @extend .overlay;
     z-index: 0;
-    background-color: $colorLightGray;
+    background-color: $colorLoader;
   }
 }
 .category {

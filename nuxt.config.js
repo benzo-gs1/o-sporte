@@ -30,7 +30,6 @@ export default {
     },
     fallback: "404.html",
   },
-  trailingSlash: true,
 
   head: {
     title: "О Спорте",

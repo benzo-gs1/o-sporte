@@ -31,7 +31,7 @@ export default {
   grid-column: span 2;
   background-color: white;
   border-radius: 5px;
-  background-color: $colorLightGray;
+  background-color: $colorLoader;
 }
 
 .text-wrapper {

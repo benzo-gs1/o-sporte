@@ -1,47 +1,60 @@
 <template>
   <section id="search-page" class="content-wrapper">
-    <client-only>
-      <h2 class="h2 mt-10 mb-8 d-flex align-center">
-        <span>{{ $t("search-page.title") }}</span>
-        <span v-if="$route.query.query"> &ndash; "{{ title }}"</span>
-      </h2>
-      <template v-if="loading">
-        <loading-icon></loading-icon>
-      </template>
-      <template v-else-if="total">
-        <p class="mt-2 mb-6 found">
-          {{ $t("search-page.found", { total }) }}
-        </p>
-        <div class="content-grid">
-          <image-news-block
-            v-for="post in firstBlock"
-            :key="post.id"
-            :post="post"
-          ></image-news-block>
-          <hr v-if="imageless.length" class="hr" />
-          <imageless-news-block
-            v-for="post in imageless"
-            :key="post.id"
-            :post="post"
-          ></imageless-news-block>
-          <hr v-if="secondBlock.length" class="hr" />
-          <!-- <div class="ad"></div> -->
-          <image-news-block
-            v-for="post in secondBlock"
-            :key="post.id"
-            :post="post"
-          ></image-news-block>
-        </div>
-        <div class="pagination-wrapper mt-10">
-          <pagination :total="total" :page="page" @page-change="pageChange" />
-        </div>
-      </template>
-      <template v-else>
-        <p class="mt-2 mb-6 found">
-          {{ $t("no-data") }}
-        </p>
-      </template>
-    </client-only>
+    <h2 class="h2 mt-10 mb-8 d-flex align-center">
+      <span>{{ $t("search-page.title") }}</span>
+      <span v-if="$route.query.query"> &ndash; "{{ title }}"</span>
+    </h2>
+    <template v-if="loading">
+      <div class="content-grid">
+        <loading-image-news-block
+          v-for="post in [1, 2, 3, 4]"
+          :key="post.id"
+        ></loading-image-news-block>
+        <hr class="hr" />
+        <loading-imageless-news-block
+          v-for="post in [5, 6, 7, 8]"
+          :key="post.id"
+        ></loading-imageless-news-block>
+        <hr class="hr" />
+        <loading-image-news-block
+          v-for="post in [9, 10, 11, 12]"
+          :key="post.id"
+        ></loading-image-news-block>
+      </div>
+    </template>
+    <template v-else-if="total">
+      <p class="mt-2 mb-6 found">
+        {{ $t("search-page.found", { total }) }}
+      </p>
+      <div class="content-grid">
+        <image-news-block
+          v-for="post in firstBlock"
+          :key="post.id"
+          :post="post"
+        ></image-news-block>
+        <hr v-if="imageless.length" class="hr" />
+        <imageless-news-block
+          v-for="post in imageless"
+          :key="post.id"
+          :post="post"
+        ></imageless-news-block>
+        <hr v-if="secondBlock.length" class="hr" />
+        <!-- <div class="ad"></div> -->
+        <image-news-block
+          v-for="post in secondBlock"
+          :key="post.id"
+          :post="post"
+        ></image-news-block>
+      </div>
+      <div class="pagination-wrapper mt-10">
+        <pagination :total="total" :page="page" @page-change="pageChange" />
+      </div>
+    </template>
+    <template v-else>
+      <p class="mt-2 mb-6 found">
+        {{ $t("no-data") }}
+      </p>
+    </template>
   </section>
 </template>
 
@@ -59,7 +72,7 @@ export default {
       posts: [],
       page: 1,
       total: 0,
-      loading: false,
+      loading: true,
     };
   },
   computed: {
