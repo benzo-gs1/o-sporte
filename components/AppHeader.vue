@@ -155,9 +155,6 @@ export default {
     toggle() {
       this.toggleSearching();
       this.$refs.searchBlock.dropPosts();
-      document.querySelector("#app").style.overflowY = this.isSearching
-        ? "hidden"
-        : "";
     },
     toggleMobile() {
       this.toggleSearching();

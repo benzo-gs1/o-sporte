@@ -7,6 +7,12 @@ export const state = () => ({
 export const mutations = {
   toggleSearching(state) {
     state.isSearching = !state.isSearching;
+
+    if (process.client) {
+      document.querySelector("#app").style.overflowY = this.isSearching
+        ? "hidden"
+        : "";
+    }
   },
 };
 

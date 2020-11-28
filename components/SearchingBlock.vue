@@ -130,9 +130,6 @@ export default {
       } else {
         this.toggleSearching();
         this.dropPosts();
-        document.querySelector("#app").style.overflowY = this.isSearching
-          ? "hidden"
-          : "";
       }
     },
     search() {
