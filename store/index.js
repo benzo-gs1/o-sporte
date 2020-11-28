@@ -9,7 +9,7 @@ export const mutations = {
     state.isSearching = !state.isSearching;
 
     if (process.client) {
-      document.querySelector("#app").style.overflowY = this.isSearching
+      document.querySelector("#app").style.overflowY = state.isSearching
         ? "hidden"
         : "";
     }
