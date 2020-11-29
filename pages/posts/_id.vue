@@ -1,22 +1,24 @@
 <template>
   <div class="content-wrapper">
-    <article class="article content-grid mt-16">
-      <div class="title-image">
-        <img v-if="post.image" :src="post.image.link" :alt="post.image.alt" />
-      </div>
-      <h1 class="title">
-        <div class="tags d-flex">
-          <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
-            {{ tag.name }}
-          </div>
+    <main class="article content-grid mt-16">
+      <div class="article-header content-grid">
+        <div class="title-image">
+          <img v-if="post.image" :src="post.image.link" :alt="post.image.alt" />
         </div>
-        <span>{{ post.title }}</span>
-      </h1>
-      <div class="time-wrapper">
-        <date-block class="date" :date="post.date"></date-block>
+        <h1 class="title">
+          <div class="tags d-flex">
+            <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
+              {{ tag.name }}
+            </div>
+          </div>
+          <span>{{ post.title }}</span>
+        </h1>
+        <div class="time-wrapper">
+          <date-block class="date" :date="post.date"></date-block>
+        </div>
       </div>
       <div class="desktop-social-wrapper">
-        <div class="inner-wrapper d-flex flex-column">
+        <div class="inner-wrapper d-flex flex-column align-start pl-1">
           <icon
             v-for="icon in socials"
             :key="icon.name"
@@ -29,64 +31,78 @@
           />
         </div>
       </div>
-      <div v-if="sections.length" class="table-of-contents">
-        <div
-          class="contents-header-wrapper d-flex justify-between align-center"
-        >
-          <h5 class="h5">Содержание статьи</h5>
-          <span class="clickable" @click="sectionShow = !sectionShow">
-            скрыть
-          </span>
+      <div class="article-content d-flex flex-column">
+        <div v-if="sections.length" class="table-of-contents">
+          <div
+            class="contents-header-wrapper d-flex justify-between align-center"
+          >
+            <h5 class="h5">Содержание статьи</h5>
+            <span class="clickable" @click="sectionShow = !sectionShow">
+              скрыть
+            </span>
+          </div>
+          <transition name="contents">
+            <ul v-if="sectionShow && sections.length" class="sections">
+              <li
+                v-for="(section, index) in sections"
+                :key="index"
+                class="mb-4"
+              >
+                <a class="section-link" :href="section.link">{{
+                  section.name
+                }}</a>
+              </li>
+            </ul>
+          </transition>
         </div>
-        <ul v-if="sectionShow && sections.length" class="sections">
-          <li v-for="(section, index) in sections" :key="index" class="mb-4">
-            <a class="section-link" :href="section.link">{{ section.name }}</a>
-          </li>
-        </ul>
-      </div>
-      <p
-        v-if="!post.excerpt.includes('[&hellip;]')"
-        class="description content-header"
-      ></p>
-      <!-- content -->
-      <div class="last-element tags tags_article d-flex">
-        <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
-          {{ tag.name }}
+        <p
+          v-if="!post.excerpt.includes('[&hellip;]')"
+          class="description content-header"
+        ></p>
+        <!-- content -->
+        <div class="last-element tags tags_article d-flex">
+          <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
+            {{ tag.name }}
+          </div>
         </div>
-      </div>
-      <div class="author-card mt-14 d-flex">
-        <icon class="mr-7" name="avatar" alt="author-icon" size="126px" />
-        <div class="author-text-wrapper d-flex flex-column">
-          <span class="author-title my-3">Автор</span>
-          <span class="author-name">{{ post.author }}</span>
+        <div class="author-card mt-14 d-flex">
+          <icon class="mr-7" name="avatar" alt="author-icon" size="126px" />
+          <div class="author-text-wrapper d-flex flex-column">
+            <span class="author-title my-3">Автор</span>
+            <span class="author-name">{{ post.author }}</span>
+          </div>
         </div>
-      </div>
-      <div class="social-share mt-15 mb-8">
-        <h5 class="social-share-title mb-5">Поделится</h5>
-        <div class="icons-wrapper d-flex mb-5">
-          <icon
-            v-for="icon in socials"
-            :key="icon.name"
-            :name="icon.name"
-            :alt="icon.name + '-social-icon'"
-            size="50px"
-            clickable
-            :link="icon.link"
-          />
+        <div class="social-share mt-15 mb-8">
+          <h5 class="social-share-title mb-5">Поделится</h5>
+          <div class="icons-wrapper d-flex mb-5">
+            <icon
+              v-for="icon in socials"
+              :key="icon.name"
+              :name="icon.name"
+              :alt="icon.name + '-social-icon'"
+              size="50px"
+              clickable
+              :link="icon.link"
+            />
+          </div>
         </div>
+        <section class="email mt-14 pa-6 d-flex flex-column align-center">
+          <h4 class="email-title mb-14">Хочешь получить рассылку?</h4>
+          <div class="input-wrapper d-flex">
+            <input
+              class="email-input"
+              type="text"
+              placeholder="Введите email"
+            />
+            <button class="email-button clickable">Отправить</button> <br />
+          </div>
+          <p class="clickable email-agreement mt-4 mb-8">
+            Пользовательское соглашение
+          </p>
+        </section>
       </div>
       <article-exclusives class="exclusives"></article-exclusives>
-    </article>
-    <section class="email mt-14 pa-6 d-flex flex-column align-center">
-      <h4 class="email-title mb-14">Хочешь получить рассылку?</h4>
-      <div class="input-wrapper d-flex">
-        <input class="email-input" type="text" placeholder="Введите email" />
-        <button class="email-button clickable">Отправить</button> <br />
-      </div>
-      <p class="clickable email-agreement mt-4 mb-8">
-        Пользовательское соглашение
-      </p>
-    </section>
+    </main>
   </div>
 </template>
 
@@ -158,7 +174,7 @@ export default {
     ...mapMutations(["toggleSearching"]),
     buildContent() {
       const container = document.createElement("div");
-      const article = this.$el.querySelector(".article");
+      const article = this.$el.querySelector(".article-content");
       const endNode = article.querySelector(".last-element");
       container.innerHTML = this.post.content;
 
@@ -177,7 +193,7 @@ export default {
       });
     },
     buildDescription() {
-      const description = this.$el.querySelector("article > .description");
+      const description = this.$el.querySelector(".description");
 
       if (!description) return;
       const container = document.createElement("div");
@@ -210,6 +226,16 @@ export default {
   gap: 15px;
   height: auto;
 }
+.article-header {
+  grid-column: span 8;
+}
+.article-content {
+  grid-column: 3 / 7;
+
+  & > * {
+    margin-bottom: 30px;
+  }
+}
 .title-image {
   grid-column: span 8;
 
@@ -223,12 +249,15 @@ export default {
   margin-bottom: -100px;
 }
 .title {
-  font-size: 60px;
+  font-size: 58px;
   font-weight: 700;
-  line-height: 86px;
+  line-height: 76px;
   letter-spacing: 0em;
   span {
     background-color: $colorTag;
+    padding: 0.1em 0.2em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
   }
 
   grid-column: 2 / 8;
@@ -256,10 +285,8 @@ export default {
 }
 .desktop-social-wrapper {
   grid-column: 2 / 3;
-  grid-row: 4 / 8;
-  z-index: -1;
-
-  @supports (position: sticky) {
+  z-index: 0;
+  .inner-wrapper {
     position: sticky;
     top: 50px;
   }
@@ -273,7 +300,7 @@ export default {
   .sections {
     padding-top: 0px;
   }
-  grid-column: 3 / 6;
+  grid-column: 3 / 7;
 
   .section-link {
     font-size: 18px;
@@ -284,10 +311,6 @@ export default {
 }
 .exclusives {
   grid-column: 7 / 9;
-  grid-row: 4 / 15;
-}
-.description {
-  grid-column: 3 / 7;
 }
 .tags_article {
   grid-column: 3 / 7;
@@ -512,12 +535,21 @@ export default {
     }
   }
 }
+.contents-enter-active,
+.contents-leave-active {
+  transition: all 0.2s;
+  max-height: 100%;
+}
+.contents-enter,
+.contents-leave-to {
+  opacity: 0;
+  max-height: 0%;
+}
 </style>
 
 <style lang="scss">
 .content-element {
-  grid-column: 3 / 7;
-  padding-right: 10px;
+  margin-bottom: 15px;
 }
 .content-header {
   font-size: 24px;
@@ -537,14 +569,13 @@ export default {
     height: 100%;
   }
 
-  &.size-large {
-    grid-column: 1 / 9;
-  }
-}
-@media (max-width: $bpTabletMax) {
-  .content-element {
-    grid-column: span 8;
-  }
+  // &.size-large {
+  //   transform: translateX(-25%);
+  //   img {
+  //     width: auto;
+  //     height: 100%;
+  //   }
+  // }
 }
 @media (max-width: $bpMobileMax + 100px) {
   .social-share {
