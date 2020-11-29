@@ -300,7 +300,6 @@ export default {
   .sections {
     padding-top: 0px;
   }
-  grid-column: 3 / 7;
 
   .section-link {
     font-size: 18px;
@@ -317,7 +316,6 @@ export default {
   margin-top: 20px;
 }
 .author-card {
-  grid-column: 3 / 7;
   .author-text-wrapper {
     .author-title {
       font-size: 14px;
@@ -337,7 +335,6 @@ export default {
 }
 .social-share {
   display: none;
-  grid-column: 1 / 5;
   background-color: $colorLightGray;
   padding: 10px;
 
@@ -362,16 +359,16 @@ export default {
     color: white;
   }
   .input-wrapper {
-    width: 70%;
+    align-self: flex-start;
   }
   &-input {
     flex: 1;
 
-    font-size: 24px;
+    font-size: 18px;
     padding: 26px 36px;
   }
   &-button {
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 600;
 
     padding: 18px 26px;
@@ -382,10 +379,9 @@ export default {
   }
   &-agreement {
     color: white;
-
+    align-self: flex-start;
     font-size: 14px;
     font-weight: 600;
-    width: 70%;
   }
 }
 .spacer {
@@ -394,12 +390,14 @@ export default {
 }
 
 @media (max-width: $bpTabletMax) {
+  .article-content {
+    grid-column: span 8;
+  }
   .title {
     grid-column: span 8;
     font-size: 48px;
     line-height: 70px;
   }
-
   .time-wrapper {
     grid-column: span 8;
   }
@@ -410,25 +408,12 @@ export default {
   }
 
   .table-of-contents,
-  .tags_article,
-  .author-card {
-    grid-column: 1 / 5;
-  }
-  .description {
-    grid-column: 1 / 7;
+  .social-share {
+    max-width: 50%;
   }
 
   .social-share {
     display: block;
-  }
-
-  .email {
-    .input-wrapper {
-      width: 85%;
-    }
-    &-agreement {
-      width: 85%;
-    }
   }
 }
 @media (max-width: $bpTabletMin) {
@@ -444,22 +429,12 @@ export default {
     margin-bottom: -70px;
   }
 
-  .table-of-contents {
-    grid-column: span 8;
-  }
-  .tags_article,
-  .author-card,
+  .table-of-contents,
   .social-share {
-    grid-column: 1 / 7;
+    max-width: 75%;
   }
 
   .email {
-    .input-wrapper {
-      width: 90%;
-    }
-    &-agreement {
-      width: 90%;
-    }
     &-title {
       font-size: 24px;
       line-height: 29px;
@@ -475,17 +450,15 @@ export default {
 @media (max-width: $bpMobileMax + 100px) {
   .title {
     font-size: 28px;
-    line-height: 40px;
+    line-height: 38px;
   }
   .title-image {
     margin-bottom: -70px;
   }
 
-  .tags_article,
-  .author-card,
-  .social-share,
-  .description {
-    grid-column: span 8;
+  .table-of-contents,
+  .social-share {
+    max-width: none;
   }
   .social-share {
     &-title {
@@ -497,30 +470,18 @@ export default {
   }
 
   .email {
-    .input-wrapper {
-      width: 95%;
-    }
-    &-agreement {
-      width: 95%;
-    }
     &-input {
-      font-size: 16px;
+      font-size: 14px;
       padding: 16px 26px;
     }
     &-button {
-      font-size: 26px;
+      font-size: 16px;
       padding: 16px 26px;
     }
   }
 }
 @media (max-width: $bpMobileMax) {
   .email {
-    .input-wrapper {
-      width: 100%;
-    }
-    &-agreement {
-      width: 100%;
-    }
     &-title {
       font-size: 18px;
       line-height: 22px;
