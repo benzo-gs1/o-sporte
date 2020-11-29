@@ -141,8 +141,8 @@ export default {
     },
   },
   mounted() {
-    this.buildDescription();
     this.buildContent();
+    this.buildDescription();
     document.querySelector("#app").scrollTop = 0;
   },
   created() {
@@ -177,7 +177,9 @@ export default {
       });
     },
     buildDescription() {
-      const description = this.$el.querySelector(".description");
+      const description = this.$el.querySelector("article > .description");
+
+      if (!description) return;
       const container = document.createElement("div");
       container.innerHTML = this.post.excerpt;
       description.innerHTML = container.querySelector("p").innerHTML;
