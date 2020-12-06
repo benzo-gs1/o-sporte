@@ -140,11 +140,15 @@ export default {
       const container = document.createElement("div");
       container.innerHTML = this.post.content;
       const sections = [...container.querySelectorAll("h2")];
-
-      return sections.map((section) => ({
-        name: section.innerHTML,
-        link: "#" + section.innerHTML,
-      }));
+      return sections.map((section) => {
+        const text = section.innerHTML;
+        return {
+          name: text.includes(";")
+            ? text.substring(0, text.indexOf("&"))
+            : text,
+          link: "#" + section.innerHTML,
+        };
+      });
     },
     categories() {
       return this.post.categories?.map((item) => item.slug) ?? [];
@@ -258,10 +262,11 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
   overflow: hidden;
-  max-height: 550px;
-  margin-bottom: -100px;
+  max-height: 400px;
+  margin-bottom: -80px;
 }
 .title {
   font-size: 58px;
