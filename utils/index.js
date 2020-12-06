@@ -63,7 +63,7 @@ export function parsePostArticle(post) {
           alt: post._embedded["wp:featuredmedia"][0].alt_text,
         }
       : undefined,
-    author: post.acf.author,
+    author: post._embedded.author[0].name,
     categories: post._embedded["wp:term"][0].map((category) => ({
       id: category.id,
       slug: category.slug,

@@ -19,7 +19,7 @@ export const mutations = {
 export const actions = {
   async fetchPopular() {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=3&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia&order=asc`
+      `/posts?per_page=3&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc`
     );
     return {
       data: data.map(parsePostFull),
@@ -28,7 +28,7 @@ export const actions = {
   },
   async fetchExclusive() {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=4&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia&order=asc&categories=18`
+      `/posts?per_page=4&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc&categories=18`
     );
     return {
       data: data.map(parsePost),
@@ -37,7 +37,7 @@ export const actions = {
   },
   async fetchNewsSection() {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=8&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia`
+      `/posts?per_page=8&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author`
     );
     return {
       data: data.map(parsePost),
@@ -53,7 +53,7 @@ export const actions = {
   async searchPosts(_, { query, category, page }) {
     try {
       const { data, headers } = await this.$axios.get(
-        `/posts?per_page=12&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia&${
+        `/posts?per_page=12&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term, wp:featuredmedia,author&${
           query ? `search=${query}` : `categories=${category}`
         }`
       );
@@ -74,7 +74,7 @@ export const actions = {
   },
   async fetchPost(_, slug) {
     const { data } = await this.$axios.get(
-      `/posts?_fields=id,date,slug,title,content,excerpt,_embedded,_links,acf&_embed=wp:term, wp:featuredmedia&slug=${slug}`
+      `/posts?_fields=id,date,slug,title,content,excerpt,_embedded,_links,acf&_embed=wp:term, wp:featuredmedia,author&slug=${slug}`
     );
     const post = data[0];
     if (post) return parsePostArticle(post);
@@ -82,7 +82,7 @@ export const actions = {
   },
   async fetchPostExclusives() {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=4&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia&order=asc&categories=18`
+      `/posts?per_page=4&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc&categories=18`
     );
     return {
       data: data.map(parsePost),
