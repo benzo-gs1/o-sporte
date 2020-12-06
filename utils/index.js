@@ -73,5 +73,10 @@ export function parsePostArticle(post) {
       name: tag.name,
     })),
     comment_status: post.comment_status,
+    meta: {
+      title: post.acf.meta_title,
+      description: post.acf.meta_description,
+      keywords: post.acf.meta_keywords,
+    },
   };
 }

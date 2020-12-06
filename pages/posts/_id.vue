@@ -152,8 +152,23 @@ export default {
     tags() {
       return this.post.tags?.map((item) => item.name) ?? [];
     },
-    keywords() {
+    metaTitle() {
+      if (this.post.meta.title) {
+        return this.post.meta.title;
+      }
+      return this.post.title;
+    },
+    metaKeywords() {
+      if (this.post.meta.keywords) {
+        return this.post.meta.keywords;
+      }
       return [...this.tags, ...this.categories].join(",").toLowerCase();
+    },
+    metaDescription() {
+      if (this.post.meta.description) {
+        return this.post.meta.description;
+      }
+      return this.post.description;
     },
   },
   mounted() {
@@ -203,17 +218,17 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: this.metaTitle,
       meta: [
         {
           hid: "description",
           name: "description",
-          content: this.post.description,
+          content: this.metaDescription,
         },
         {
           hid: "keywords",
           name: "keywords",
-          content: this.keywords,
+          content: this.metaKeywords,
         },
       ],
     };
