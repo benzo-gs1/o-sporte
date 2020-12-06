@@ -39,14 +39,7 @@
       >
         <div role="hidden"></div>
         <nuxt-link class="logo" :to="localePath('/')">
-          <point
-            size="25px"
-            height="29px"
-            color="#EB5757"
-            style="transform: rotate(24.4deg)"
-            class="mr-n2"
-          />
-          Спорте
+          <img src="@/assets/logo.png" alt="logo" />
         </nuxt-link>
         <p class="copyright">&copy; {{ $t("footer.copyright") }}</p>
       </div>
@@ -159,17 +152,6 @@ export default {
   line-height: 22px;
   letter-spacing: 0em;
 }
-
-.logo {
-  font-size: 48px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 58px;
-  letter-spacing: 0em;
-
-  text-decoration: none;
-  color: $colorWhite;
-}
 .copyright {
   font-size: 18px;
   font-style: normal;
@@ -178,6 +160,12 @@ export default {
   letter-spacing: 0em;
 
   color: $colorWhite;
+}
+.logo {
+  img {
+    width: 60%;
+  }
+  // padding: 5em;
 }
 .social-title {
   font-size: 24px;

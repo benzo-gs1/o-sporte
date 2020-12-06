@@ -1,8 +1,10 @@
 <template>
   <header id="app-header">
     <div class="content-wrapper d-flex align-center justify-between">
-      <nuxt-link class="logo" :to="localePath('/')">ОСпорте</nuxt-link>
-      <nav class="navigation d-flex">
+      <nuxt-link class="logo" :to="localePath('/')">
+        <img src="@/assets/logo.png" alt="logo" />
+      </nuxt-link>
+      <nav class="navigation d-flex mt-2">
         <nuxt-link
           v-for="item in items"
           :key="item.link"
@@ -61,17 +63,16 @@
             'burger-menu_active': isSearching,
           }"
         >
-          <div
-            class="burger-header d-flex align-center justify-between px-5 py-2"
-          >
+          <div class="burger-header d-flex align-center justify-between px-5">
             <nuxt-link
               class="logo"
               :to="localePath('/')"
               @click.native="toggleMobile"
             >
-              ОСпорте
+              <img src="@/assets/logo.png" alt="logo" />
             </nuxt-link>
             <icon
+              class="pt-2"
               name="exit_burger"
               alt="exit-burger-icon"
               size="45px"
@@ -172,18 +173,12 @@ export default {
 }
 
 .logo {
-  font-style: italic;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 58px;
-
-  text-decoration: none;
-  color: $colorWhite;
-
   margin-right: 28px;
-
-  &::first-letter {
-    color: #eb5757;
+  height: 75px;
+  padding: 16px;
+  img {
+    max-height: 100%;
+    max-width: 100%;
   }
 }
 

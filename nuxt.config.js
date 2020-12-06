@@ -32,7 +32,7 @@ export default {
   },
 
   head: {
-    title: "О Спорте",
+    title: "1 Спорт",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
