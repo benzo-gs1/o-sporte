@@ -3,20 +3,24 @@
     <div class="image">
       <img :src="image" alt="live-footage" />
     </div>
-    <div class="d-flex flex-column content pa-5">
-      <category-link
-        class="category"
-        :category-id="12"
-        :name="post.category"
-      ></category-link>
-      <h3 class="h3 mt-1">{{ post.title }}</h3>
+    <div class="d-flex flex-column justify-between content pa-5">
+      <div class="wrapper">
+        <category-link
+          class="category"
+          :category-id="12"
+          :name="post.category"
+        ></category-link>
+        <h3 class="h4 mt-1">{{ post.title }}</h3>
+      </div>
       <p class="description mt-1">{{ post.description }}</p>
-      <p class="time mt-6">{{ post.time }}</p>
-      <category-link
-        class="mt-4"
-        :category-id="12"
-        name="В ЭФИРЕ"
-      ></category-link>
+      <div class="wrapper d-flex flex-column">
+        <p class="time mt-6">{{ post.time }}</p>
+        <category-link
+          class="mt-4"
+          :category-id="12"
+          name="В ЭФИРЕ"
+        ></category-link>
+      </div>
     </div>
   </article>
 </template>
@@ -40,8 +44,8 @@ export default {
 
 <style lang="scss" scoped>
 .live-block {
-  min-width: 580px;
-  width: 580px;
+  min-width: 380px;
+  width: 380px;
   border-radius: 10px;
   border: 2px solid $colorLightGray;
   overflow: hidden;
@@ -52,7 +56,7 @@ export default {
 
 .image {
   width: 100%;
-  height: 314px;
+  height: 160px;
 
   img {
     width: 100%;
@@ -60,40 +64,34 @@ export default {
     object-fit: cover;
   }
 }
+.content {
+  height: 100%;
+}
 .category {
   color: $colorGray;
 }
 .description {
-  font-size: 14px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
 }
 .time {
-  font-size: 14px;
+  font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0em;
   color: $colorGray;
 }
-@media (max-width: $bpTabletMin) {
-  .live-block {
-    min-width: 537px;
-    width: 537px;
-  }
-}
 @media (max-width: $bpMobileMax + 100px) {
   .live-block {
-    min-width: 325px;
-    width: 325px;
+    min-width: 280px;
+    width: 280px;
   }
-
-  .h3 {
-    font-size: 24px !important;
-    line-height: 29px !important;
-    letter-spacing: 0em !important;
+  .h4 {
+    font-size: 1.8rem;
   }
 }
 </style>
