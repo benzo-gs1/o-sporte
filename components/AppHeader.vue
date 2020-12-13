@@ -137,11 +137,11 @@ export default {
           name: "links.cybersport",
           link: "/search?category=17&page=1",
         },
-        {
-          name: "links.live",
-          link: "/live",
-          live: true,
-        },
+        // {
+        //   name: "links.live",
+        //   link: "/live",
+        //   live: true,
+        // },
       ],
     };
   },

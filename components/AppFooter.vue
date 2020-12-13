@@ -102,11 +102,11 @@ export default {
             name: "links.forecasts",
             link: "/search?category=15&page=1",
           },
-          {
-            name: "links.live",
-            link: "/live",
-            live: true,
-          },
+          // {
+          //   name: "links.live",
+          //   link: "/live",
+          //   live: true,
+          // },
         ],
       },
       icons: [

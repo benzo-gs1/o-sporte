@@ -21,14 +21,18 @@
         class="selector"
       ></v-select>
     </nav>
-    <div v-if="selectedList.length" class="content-grid">
-      <game-block
-        v-for="game in selectedList"
-        :key="game.id"
-        :game="game"
-      ></game-block>
+    <div class="content-grid">
+      <template v-if="selectedList.length">
+        <game-block
+          v-for="game in selectedList"
+          :key="game.id"
+          :game="game"
+        ></game-block>
+      </template>
+      <template v-else>
+        <!-- loading -->
+      </template>
     </div>
-    <loading-icon v-else></loading-icon>
   </article-section>
 </template>
 

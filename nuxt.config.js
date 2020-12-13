@@ -80,9 +80,6 @@ export default {
       Host: "https://1sport.kz",
       Disallow: "/404.html",
     },
-    {
-      Host: "http://1sport.kz",
-    },
   ],
 
   axios: {

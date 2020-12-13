@@ -5,7 +5,7 @@
     <!-- <div class="adds adds-placeholder mt-10 mb-8" style="height: 100px"></div> -->
     <exclusives-section class="content-wrapper"></exclusives-section>
     <games-section class="content-wrapper"></games-section>
-    <live-section class="content-wrapper"></live-section>
+    <!-- <live-section class="content-wrapper"></live-section> -->
   </div>
 </template>
 
