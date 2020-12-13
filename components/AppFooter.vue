@@ -123,8 +123,12 @@ export default {
 
 <style lang="scss" scoped>
 #app-footer {
+  $height: 350px;
+  height: $height;
+  min-height: $height;
+  max-height: $height;
+
   margin-top: 40px;
-  height: 350px;
   background-color: black;
 }
 .content-wrapper {
@@ -180,7 +184,10 @@ export default {
 
 @media (max-width: $bpTabletMax) {
   #app-footer {
-    height: 475px;
+    $height: 475px;
+    height: $height;
+    min-height: $height;
+    max-height: $height;
   }
 
   .content-wrapper {
@@ -203,7 +210,10 @@ export default {
 }
 @media (max-width: $bpMobileMax + 100px) {
   #app-footer {
-    height: 630px;
+    $height: 630px;
+    height: $height;
+    min-height: $height;
+    max-height: $height;
   }
   .content-wrapper {
     grid-template-columns: 1fr;
