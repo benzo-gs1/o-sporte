@@ -55,18 +55,13 @@
             </ul>
           </transition>
         </div>
-        <!-- <p
-          v-if="!post.excerpt.includes('[&hellip;]')"
-          class="description content-header"
-        ></p> -->
         <!-- content -->
         <div class="last-element tags tags_article d-flex">
           <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
             {{ tag.name }}
           </div>
         </div>
-        <div class="author-card mt-14 d-flex">
-          <icon class="mr-7" name="avatar" alt="author-icon" size="126px" />
+        <div class="author-card d-flex">
           <div class="author-text-wrapper d-flex flex-column">
             <span class="author-title my-3">Автор</span>
             <span class="author-name">{{ post.author }}</span>
@@ -86,7 +81,7 @@
             />
           </div>
         </div>
-        <section class="email mt-14 pa-6 d-flex flex-column align-center">
+        <section class="email mt-4 pa-6 d-flex flex-column align-center">
           <h4 class="email-title mb-14">Хочешь получить рассылку?</h4>
           <div class="input-wrapper d-flex">
             <input
@@ -177,7 +172,6 @@ export default {
   },
   mounted() {
     this.buildContent();
-    // this.buildDescription();
     document.querySelector("#app").scrollTop = 0;
   },
   created() {
@@ -211,14 +205,6 @@ export default {
         article.insertBefore(node, endNode);
       });
     },
-    // buildDescription() {
-    //   const description = this.$el.querySelector(".description");
-
-    //   if (!description) return;
-    //   const container = document.createElement("div");
-    //   container.innerHTML = this.post.excerpt;
-    //   description.innerHTML = container.querySelector("p").innerHTML;
-    // },
   },
   head() {
     return {
@@ -252,7 +238,7 @@ export default {
   grid-column: 3 / 7;
 
   & > * {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
 .title-image {
