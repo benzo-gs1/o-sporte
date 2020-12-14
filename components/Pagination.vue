@@ -51,7 +51,7 @@ export default {
       const result = Array.from(Array(this.pages), (_, i) => i + 1);
       const diffLeft = this.page - 1;
       const diffRight = this.pages - this.page;
-      // debugger;
+
       if (diffLeft > 3) {
         result.splice(1, diffLeft - 2, "...");
       }
@@ -74,7 +74,7 @@ export default {
       this.$emit("page-change", page);
     },
     moveNext() {
-      if (this.page + 1 <= this.total) {
+      if (this.page + 1 <= this.pages) {
         this.changePage(this.page + 1);
       }
     },
