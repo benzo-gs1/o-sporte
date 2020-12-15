@@ -13,7 +13,7 @@
           </div>
           <span>{{ post.title }}</span>
         </h1>
-        <div class="time-wrapper">
+        <div class="time-wrapper mt-2">
           <date-block class="date" :date="post.date"></date-block>
         </div>
       </div>
@@ -55,7 +55,9 @@
             </ul>
           </transition>
         </div>
-        <!-- content -->
+        <div class="main-content" v-html="content">
+          <!-- content -->
+        </div>
         <div class="last-element tags tags_article d-flex">
           <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
             {{ tag.name }}
@@ -169,10 +171,9 @@ export default {
       }
       return this.post.excerpt?.replace("<p>", "").replace("</p>", "");
     },
-  },
-  mounted() {
-    this.buildContent();
-    document.querySelector("#app").scrollTop = 0;
+    content() {
+      return this.post.content;
+    },
   },
   created() {
     if (this.$store.state.isSearching) {
@@ -185,26 +186,6 @@ export default {
   },
   methods: {
     ...mapMutations(["toggleSearching"]),
-    buildContent() {
-      const container = document.createElement("div");
-      const article = this.$el.querySelector(".article-content");
-      const endNode = article.querySelector(".last-element");
-      container.innerHTML = this.post.content;
-
-      container.childNodes.forEach((node) => {
-        if (node.nodeName === "#text") return;
-        if (node.nodeName === "H2") {
-          node.id = node.innerHTML;
-          node.classList.add("content-header");
-        }
-        if (node.nodeName === "P") {
-          node.classList.add("content-paragraph");
-        }
-
-        node.classList.add("content-element");
-        article.insertBefore(node, endNode);
-      });
-    },
   },
   head() {
     return {
@@ -515,35 +496,33 @@ export default {
 </style>
 
 <style lang="scss">
-.content-element {
-  margin-bottom: 15px;
-}
-.content-header {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 29px;
-  letter-spacing: 0em;
-}
-.content-paragraph {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 23px;
-  letter-spacing: 0em;
-}
-.wp-block-image {
-  img {
-    width: 100%;
-    height: 100%;
+.main-content {
+  & > * {
+    margin-bottom: 15px;
   }
 
-  // &.size-large {
-  //   transform: translateX(-25%);
-  //   img {
-  //     width: auto;
-  //     height: 100%;
-  //   }
-  // }
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0em;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+  }
+
+  .wp-block-image {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
+
 @media (max-width: $bpMobileMax + 100px) {
   .social-share {
     .icons-wrapper {
