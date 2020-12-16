@@ -59,7 +59,11 @@
           <!-- content -->
         </div>
         <div class="last-element tags tags_article d-flex">
-          <div v-for="tag in post.tags" :key="tag.id" class="tag mr-3">
+          <div
+            v-for="tag in post.tags"
+            :key="'sub-tag-' + tag.id"
+            class="tag mr-3"
+          >
             {{ tag.name }}
           </div>
         </div>
@@ -74,7 +78,7 @@
           <div class="icons-wrapper d-flex mb-5">
             <icon
               v-for="icon in socials"
-              :key="icon.name"
+              :key="'sub-icon-' + icon.name"
               :name="icon.name"
               :alt="icon.name + '-social-icon'"
               size="50px"
@@ -133,19 +137,15 @@ export default {
   },
   computed: {
     sections() {
-      if (!process.client) return [];
-      const container = document.createElement("div");
-      container.innerHTML = this.post.content;
-      const sections = [...container.querySelectorAll("h2")];
-      return sections.map((section) => {
-        const text = section.innerHTML;
-        return {
-          name: text.includes(";")
-            ? text.substring(0, text.indexOf("&"))
-            : text,
-          link: "#" + section.innerHTML,
-        };
-      });
+      const match = [...this.post.content.matchAll(/<h2>(.*?)<\/h2>/gi)];
+      return match
+        .map((item) => item[1])
+        .map((item) => ({
+          name: item.includes(";")
+            ? item.substring(0, item.indexOf("&"))
+            : item,
+          link: "#" + item,
+        }));
     },
     categories() {
       return this.post.categories?.map((item) => item.slug) ?? [];
@@ -224,18 +224,20 @@ export default {
 }
 .title-image {
   grid-column: span 8;
+  z-index: 0;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
+    position: relative;
+    transform: translateY(-25%);
   }
   overflow: hidden;
   max-height: 400px;
   margin-bottom: -80px;
 }
 .title {
+  z-index: 1;
   font-size: 58px;
   font-weight: 700;
   line-height: 76px;
@@ -252,6 +254,7 @@ export default {
 
 .tags {
   flex-wrap: wrap;
+  min-height: 30px;
 }
 .tag {
   font-size: 16px;
