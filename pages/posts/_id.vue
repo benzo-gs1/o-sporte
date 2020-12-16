@@ -140,12 +140,15 @@ export default {
       const match = [...this.post.content.matchAll(/<h2>(.*?)<\/h2>/gi)];
       return match
         .map((item) => item[1])
-        .map((item) => ({
-          name: item.includes(";")
+        .map((item) => {
+          const parsed = item.includes(";")
             ? item.substring(0, item.indexOf("&"))
-            : item,
-          link: "#" + item,
-        }));
+            : item;
+          return {
+            name: parsed,
+            link: "#" + parsed,
+          };
+        });
     },
     categories() {
       return this.post.categories?.map((item) => item.slug) ?? [];
@@ -172,7 +175,15 @@ export default {
       return this.post.excerpt?.replace("<p>", "").replace("</p>", "");
     },
     content() {
-      return this.post.content;
+      let temp = this.post.content;
+      const matches = [...this.post.content.matchAll(/<h2>(.*?)<\/h2>/gi)];
+      const sections = this.sections;
+      matches.forEach((match, i) => {
+        const section = sections[i];
+        const parsed = match[0].replace("<h2>", `<h2 id="${section.name}">`);
+        temp = temp.replace(match[0], parsed);
+      });
+      return temp;
     },
   },
   created() {

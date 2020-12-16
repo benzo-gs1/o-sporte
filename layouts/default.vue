@@ -2,11 +2,32 @@
   <div id="app">
     <app-header></app-header>
     <main id="main">
-      <Nuxt :key="$route.fullPath" />
+      <Nuxt :key="routeKey" />
     </main>
     <app-footer></app-footer>
   </div>
 </template>
+
+<script>
+export default {
+  computed: {
+    routeKey() {
+      return this.$route.fullPath;
+    },
+  },
+  watch: {
+    $route: "scrollBehavior",
+  },
+  mounted() {
+    this.scrollBehavior(this.$route);
+  },
+  methods: {
+    scrollBehavior(route) {
+      this.$el.scrollTop = 0;
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 * {
