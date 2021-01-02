@@ -26,6 +26,22 @@ export default {
       this.$el.scrollTop = 0;
     },
   },
+  async head() {
+    const { data } = await this.$axios.get(
+      "https://api.1sport.kz/wp-json?_fields=name,description"
+    );
+    return {
+      title: data.name || "Первый Спортивный",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content:
+            data.description || "Информационный портал про спортивные новости",
+        },
+      ],
+    };
+  },
 };
 </script>
 
