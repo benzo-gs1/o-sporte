@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     scrollBehavior(route) {
-      this.$el.scrollTop = 0;
+      if (this.$el) this.$el.scrollTop = 0;
     },
   },
   async head() {

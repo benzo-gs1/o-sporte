@@ -57,6 +57,7 @@ export default {
     "@nuxtjs/pwa",
     "nuxt-i18n",
     "@nuxtjs/style-resources",
+    "@nuxtjs/device",
     "@nuxtjs/robots",
     "@nuxtjs/sitemap",
   ],
