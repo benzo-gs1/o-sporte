@@ -49,11 +49,23 @@ export default {
   .image {
     z-index: 0;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     &::after {
       @extend .overlay;
       z-index: 0;
       background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
     }
+  }
+
+  &:nth-child(2),
+  &:nth-child(3) {
+    min-height: 230px;
+    max-height: 230px;
   }
 }
 .h4,
@@ -73,10 +85,6 @@ export default {
   .popular-block {
     &:nth-child(1) {
       min-height: 500px;
-    }
-    &:nth-child(2),
-    &:nth-child(3) {
-      min-height: 230px;
     }
   }
 }
@@ -113,6 +121,7 @@ export default {
     &:nth-child(2),
     &:nth-child(3) {
       min-height: 250px;
+      max-height: 250px;
     }
   }
 }

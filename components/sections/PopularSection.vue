@@ -3,7 +3,7 @@
     <div class="content-grid">
       <template v-if="posts.length">
         <popular-block
-          v-for="(area, index) in areas"
+          v-for="(area, index) in areasParsed"
           :key="area"
           :post="posts[index]"
           :area="area"
@@ -35,6 +35,11 @@ export default {
       posts: [],
       areas: ["big", "small-1", "small-2"],
     };
+  },
+  computed: {
+    areasParsed() {
+      return this.areas.slice(0, this.posts.length);
+    },
   },
   methods: {
     ...mapActions(["fetchPopular"]),

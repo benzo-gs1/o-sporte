@@ -19,7 +19,7 @@ export const mutations = {
 export const actions = {
   async fetchPopular() {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=3&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc`
+      `/posts?per_page=3&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc&categories=36`
     );
     return {
       data: data.map(parsePostFull),
