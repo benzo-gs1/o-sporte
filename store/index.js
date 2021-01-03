@@ -35,13 +35,13 @@ export const actions = {
       total: Number.parseInt(headers["x-wp-total"]),
     };
   },
-  async fetchNewsSection() {
+  async fetchNewsSection(_, page = 1) {
     const { data, headers } = await this.$axios.get(
-      `/posts?per_page=8&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author`
+      `/posts?per_page=8&page=${page}&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author`
     );
     return {
       data: data.map(parsePost),
-      total: Number.parseInt(headers["x-wp-total"]),
+      total: Number.parseInt(headers["x-wp-totalpages"]),
     };
   },
   async fetchSearchCategories() {

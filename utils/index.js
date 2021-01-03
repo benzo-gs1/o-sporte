@@ -8,6 +8,8 @@ export function getTitleImage(featuredMedia, size) {
 }
 
 export function parsePost(post) {
+  const category =
+    post._embedded["wp:term"][0].find((category) => category.id !== 36) || {};
   return {
     id: post.id,
     date: post.date,
@@ -22,8 +24,8 @@ export function parsePost(post) {
         }
       : undefined,
     category: {
-      id: post._embedded["wp:term"][0][0].id,
-      slug: post._embedded["wp:term"][0][0].slug,
+      id: category.id,
+      slug: category.slug,
     },
   };
 }
