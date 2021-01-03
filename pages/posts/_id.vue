@@ -510,33 +510,6 @@ export default {
 </style>
 
 <style lang="scss">
-.main-content {
-  & > * {
-    margin-bottom: 15px;
-  }
-
-  p {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 23px;
-    letter-spacing: 0em;
-  }
-
-  h2 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 29px;
-    letter-spacing: 0em;
-  }
-
-  .wp-block-image {
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
 @media (max-width: $bpMobileMax + 100px) {
   .social-share {
     .icons-wrapper {
@@ -547,4 +520,8 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss">
+@import "@/assets/_wp";
 </style>
