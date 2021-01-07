@@ -320,6 +320,10 @@ $bpMobileMin: 320px;
   }
 }
 
+body {
+  overflow-y: hidden;
+}
+
 @keyframes loading {
   from {
     left: -150px;
