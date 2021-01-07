@@ -175,7 +175,7 @@ export default {
       return this.post.excerpt?.replace("<p>", "").replace("</p>", "");
     },
     metaImage() {
-      return this.post.image.link;
+      return this.post.image?.link;
     },
     content() {
       let temp = this.post.content;
