@@ -1,5 +1,5 @@
 <template>
-  <a class="icon" :href="link">
+  <a class="icon" :href="link" :target="target" rel="noopener noreferrer">
     <img
       :src="image"
       :alt="alt"
@@ -30,6 +30,10 @@ export default {
       type: String,
       default: null,
     },
+    blank: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     styles() {
@@ -40,6 +44,12 @@ export default {
     },
     image() {
       return require(`~/assets/icons/${this.name}.svg`);
+    },
+    target() {
+      if (this.blank) {
+        return "_blank";
+      }
+      return "";
     },
   },
 };

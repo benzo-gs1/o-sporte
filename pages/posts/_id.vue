@@ -28,6 +28,7 @@
             clickable
             :link="icon.link"
             class="mb-3"
+            blank
           />
         </div>
       </div>
@@ -73,7 +74,7 @@
             <span class="author-name">{{ post.author }}</span>
           </div>
         </div>
-        <div class="social-share mt-15 mb-8">
+        <div class="social-share mt-4 mb-8">
           <h5 class="social-share-title mb-5">Поделится</h5>
           <div class="icons-wrapper d-flex mb-5">
             <icon
@@ -84,6 +85,7 @@
               size="50px"
               clickable
               :link="icon.link"
+              blank
             />
           </div>
         </div>
@@ -125,17 +127,31 @@ export default {
   },
   data() {
     return {
-      socials: [
-        { name: "facebook_black", link: "#" },
-        { name: "vk_black", link: "#" },
-        { name: "instagram_black", link: "#" },
-        { name: "twitter_black", link: "#" },
-        { name: "telegram_black", link: "#" },
-      ],
       sectionShow: true,
     };
   },
   computed: {
+    socials() {
+      const url = "https://1sport.kz/posts/" + this.post.slug;
+      return [
+        {
+          name: "facebook_black",
+          link: `https://www.facebook.com/dialog/share?app_id=87741124305&href=${url}&display=popup`,
+        },
+        {
+          name: "vk_black",
+          link: `https://vk.com/share.php?url=${url}`,
+        },
+        {
+          name: "twitter_black",
+          link: `https://twitter.com/intent/tweet?url=${url}&text=${this.metaTitle}&related=Sport`,
+        },
+        {
+          name: "telegram_black",
+          link: `https://telegram.me/share/url?url=${url}&text=${this.metaTitle}`,
+        },
+      ];
+    },
     sections() {
       const match = [...this.post.content.matchAll(/<h2>(.*?)<\/h2>/gi)];
       return match
