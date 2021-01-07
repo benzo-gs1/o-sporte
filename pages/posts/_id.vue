@@ -174,6 +174,9 @@ export default {
       }
       return this.post.excerpt?.replace("<p>", "").replace("</p>", "");
     },
+    metaImage() {
+      return this.post.image.link;
+    },
     content() {
       let temp = this.post.content;
       const matches = [...this.post.content.matchAll(/<h2>(.*?)<\/h2>/gi)];
@@ -211,6 +214,51 @@ export default {
           hid: "keywords",
           name: "keywords",
           content: this.metaKeywords,
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.metaTitle,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.metaDescription,
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: this.metaImage,
+        },
+        {
+          hid: "twitter:image:alt",
+          name: "twitter:image:alt",
+          content: this.metaTitle,
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.metaTitle,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.metaDescription,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.metaImage,
+        },
+        {
+          hid: "og:image:secure_url",
+          property: "og:image:secure_url",
+          content: this.metaImage,
+        },
+        {
+          hid: "og:image:alt",
+          property: "og:image:alt",
+          content: this.metaTitle,
         },
       ],
     };
