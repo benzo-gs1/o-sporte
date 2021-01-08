@@ -89,20 +89,6 @@
             />
           </div>
         </div>
-        <section class="email mt-4 pa-6 d-flex flex-column align-center">
-          <h4 class="email-title mb-14">Хочешь получить рассылку?</h4>
-          <div class="input-wrapper d-flex">
-            <input
-              class="email-input"
-              type="text"
-              placeholder="Введите email"
-            />
-            <button class="email-button clickable">Отправить</button> <br />
-          </div>
-          <p class="clickable email-agreement mt-4 mb-8">
-            Пользовательское соглашение
-          </p>
-        </section>
       </div>
       <article-exclusives class="exclusives"></article-exclusives>
     </main>
