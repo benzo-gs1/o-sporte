@@ -117,24 +117,26 @@ export default {
     };
   },
   computed: {
+    url() {
+      return "https://1sport.kz/posts/" + this.post.slug;
+    },
     socials() {
-      const url = "https://1sport.kz/posts/" + this.post.slug;
       return [
         {
           name: "facebook_black",
-          link: `https://www.facebook.com/dialog/share?app_id=87741124305&href=${url}&display=popup`,
+          link: `https://www.facebook.com/dialog/share?app_id=87741124305&href=${this.url}&display=popup`,
         },
         {
           name: "vk_black",
-          link: `https://vk.com/share.php?url=${url}`,
+          link: `https://vk.com/share.php?url=${this.url}`,
         },
         {
           name: "twitter_black",
-          link: `https://twitter.com/intent/tweet?url=${url}&text=${this.metaTitle}&related=Sport`,
+          link: `https://twitter.com/intent/tweet?url=${this.url}&text=${this.metaTitle}&related=Sport`,
         },
         {
           name: "telegram_black",
-          link: `https://telegram.me/share/url?url=${url}&text=${this.metaTitle}`,
+          link: `https://telegram.me/share/url?url=${this.url}&text=${this.metaTitle}`,
         },
       ];
     },
@@ -263,6 +265,22 @@ export default {
           content: this.metaTitle,
         },
       ],
+    };
+  },
+  jsonld() {
+    return {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      url: this.url,
+      publisher: {
+        "@type": "Person",
+        name: this.post.author,
+      },
+      headline: this.metaTitle,
+      mainEntityOfPage: this.url,
+      articleBody: this.content,
+      image: [this.metaImage],
+      datePublished: this.post.date,
     };
   },
 };
