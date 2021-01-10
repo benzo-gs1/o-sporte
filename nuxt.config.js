@@ -46,7 +46,7 @@ export default {
 
   css: ["~/assets/main.scss", "~/assets/fonts/fonts.css"],
 
-  plugins: ["~/plugins/moment.js"],
+  plugins: ["~/plugins/moment.js", "~/plugins/json-ld.js"],
 
   components: true,
 
