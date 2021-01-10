@@ -31,7 +31,7 @@ export const actions = {
       `/posts?per_page=4&_fields=id,date,slug,title,content,excerpt,_embedded,_links&_embed=wp:term,wp:featuredmedia,author&order=asc&categories=18`
     );
     return {
-      data: data.map(parsePost),
+      data: data.map(parsePostFull),
       total: Number.parseInt(headers["x-wp-total"]),
     };
   },
