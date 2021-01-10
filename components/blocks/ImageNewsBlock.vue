@@ -1,7 +1,7 @@
 <template>
   <article class="news-block d-flex">
     <post-link class="image mr-10" :link="post.slug">
-      <img :src="post.image.link" :alt="post.image.alt" />
+      <img v-lazy-load :src="post.image.link" :alt="post.image.alt" />
     </post-link>
     <div class="text-wrapper d-flex flex-column justify-between">
       <div class="header-wrapper">

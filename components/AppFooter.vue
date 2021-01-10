@@ -39,7 +39,7 @@
       >
         <div role="hidden"></div>
         <nuxt-link class="logo" :to="localePath('/')">
-          <img src="@/assets/logo.png" alt="logo" />
+          <img v-lazy-load src="@/assets/logo.png" alt="logo" />
         </nuxt-link>
         <p class="copyright">&copy; {{ $t("footer.copyright") }}</p>
       </div>

@@ -56,6 +56,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/pwa",
     "nuxt-i18n",
+    "nuxt-lazy-load",
     "@nuxtjs/style-resources",
     "@nuxtjs/device",
     "@nuxtjs/robots",

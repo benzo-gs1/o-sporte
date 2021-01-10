@@ -1,7 +1,7 @@
 <template>
   <article class="live-block d-flex flex-column">
     <div class="image">
-      <img :src="image" alt="live-footage" />
+      <img v-lazy-load :src="image" alt="live-footage" />
     </div>
     <div class="d-flex flex-column justify-between content pa-5">
       <div class="wrapper">

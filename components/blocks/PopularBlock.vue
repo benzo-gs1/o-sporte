@@ -8,7 +8,7 @@
     <header-4 :class="header" :title="post.title" :link="post.slug"></header-4>
     <date-block class="date sub-header mt-4" :date="post.date"></date-block>
     <post-link class="image overlay" :link="post.slug">
-      <img :src="post.image.link" :alt="post.image.alt" />
+      <img v-lazy-load :src="post.image.link" :alt="post.image.alt" />
     </post-link>
   </article>
 </template>
