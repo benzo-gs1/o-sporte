@@ -54,11 +54,16 @@ export default {
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  border-radius: 15px;
 
   &::after {
     @extend .overlay;
     z-index: 0;
     background: linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 98.41%);
+  }
+
+  img {
+    border-radius: 15px;
   }
 }
 .category {
