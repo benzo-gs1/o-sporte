@@ -53,10 +53,10 @@ export default {
   },
   computed: {
     imageless() {
-      return this.posts.filter((post) => !post.image);
+      return this.posts.filter((post) => !post.image?.link);
     },
     withImage() {
-      return this.posts.filter((post) => post.image);
+      return this.posts.filter((post) => post.image?.link);
     },
   },
   methods: {
@@ -66,7 +66,7 @@ export default {
       this.loading = true;
 
       const { data, total } = await this.fetchNewsSection(this.pages);
-      if (this.pages === total) {
+      if (this.pages > 1 && this.pages === total) {
         this.loading = false;
         return;
       }
