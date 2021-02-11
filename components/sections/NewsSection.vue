@@ -63,17 +63,28 @@ export default {
     ...mapActions(["fetchNewsSection"]),
     async fetchNews(initial = false) {
       if (!initial && this.loading) return;
-      this.loading = true;
 
-      const { data, total } = await this.fetchNewsSection(this.pages);
-      if (this.pages > 1 && this.pages === total) {
+      try {
+        this.loading = true;
+
+        const { data, total } = await this.fetchNewsSection(this.pages);
+        if (this.pages > 1 && this.pages === total) {
+          this.loading = false;
+          return;
+        }
+        this.posts.push(...data);
+        this.pages++;
+      } catch (error) {
+        if (!error.response) return;
+        const { data } = error.response;
+
+        if (data?.code !== "rest_post_invalid_page_number") {
+          // eslint-disable-next-line no-console
+          console.error(error);
+        }
+      } finally {
         this.loading = false;
-        return;
       }
-      this.posts.push(...data);
-      this.pages++;
-
-      this.loading = false;
     },
   },
 };
